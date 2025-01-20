@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx tailwindcss -i ./src/main.css -o ./dist/main.css --watch"
+    "build": "npx tailwindcss -i ./src/main.css -o ./dist/main.css --watch",
+    "watch": "browser-sync start --proxy 'abe-1047-concrete.test' --files 'dist/*.css' 'views/*.twig' '*.php' "
   },
   "author": "",
   "license": "ISC",

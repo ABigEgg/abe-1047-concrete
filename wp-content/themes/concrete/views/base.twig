@@ -4,16 +4,125 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ theme.link }}/dist/main.css">
-    <link href="https://fonts.cdnfonts.com/css/effra-heavy" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/effra-trial" rel="stylesheet">
+    {# <link href="https://fonts.cdnfonts.com/css/effra-heavy" rel="stylesheet"> #}
     
     {{ function('wp_head')  }}
 
 </head>
-<body>
+<body {{ function('body_class', 'antialiased') }}>
+
+{# Top nav #}
+<div class="absolute w-full">
+    <header class="container w-full mx-auto mt-8 max-w-container">
+        <div class="flex items-center justify-between">
+            <div class="w-[69px] h-[80px]">
+                <div>
+                    {% include 'svg/concrete.svg' %}
+                </div>
+            </div>
+            <div class="w-8 h-6">
+                <a href="#" class="transition-opacity hover:opacity-50">
+                    {% include 'svg/hamburger.svg' %}
+                </a>
+            </div>  
+        </div>
+    </header>
+</div>
+
+{# Masthead #}
+<div>
+    <header class="h-screen bg-cc-mid-grey">
+        <div class="container flex items-center justify-center h-full mx-auto max-w-container">
+            <h2 class="text-2xl text-cc-white">Page title</h2>
+        </div>
+    </header>
+</div>
+
+{# Intro #}
+<div>
+    <div class="py-20">
+        <div class="container mx-auto max-w-container">
+            <div class="grid grid-cols-12">
+                <div class="col-span-9">
+                    <h3 class="mb-4 text-2xl text-cc-dark-grey">Building brands with bold ideas</h3>
+                    <p class="text-xl text-cc-mid-grey">Collaborating with clients from various industries to develop unique concepts that captivate and connect with audiences.</p>
+                </div>
+                <div class="col-span-3">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# Latest projects #}
+<div>
+    <div class="py-16 bg-cc-light-grey">
+        <div class="container mx-auto max-w-container">
+            <div>
+                <h3 class="mb-6 text-xl text-cc-dark-grey">Latest Projects</h3>
+            </div>
+            <div class="grid grid-cols-2 gap-8 auto-rows-max">
+                {% for i in 0..3 %}
+                    <a class="p-8 pt-16 rounded-lg bg-cc-mid-grey min-h-[376px] hover:scale-105 transition-all hover:shadow-lg shadow-none" href="#">
+                        <div class="flex flex-col justify-between h-full " >
+                            <div>
+                                <h4 class="text-xl text-cc-white">Description text to go here for project</h4>
+                            </div>
+                            <div class="flex gap-2">
+                                {% set tags = ['Branding', 'Design', 'Digital', 'Motion', 'Display' ] %}
+                                {% for tag in tags %}
+                                    <span  class="inline-block p-1 px-2 rounded text-cc-white bg-cc-white bg-opacity-30">{{ tag }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </a>  
+                {% endfor %}
+            </div>   
+        </div>
+    </div>
+    <div class="py-16">
+        <div class="container flex justify-center mx-auto max-w-container">
+            <a href="#" class="inline-block py-1 border rounded-lg px-7 text-2md border-cc-dark-grey hover:bg-cc-dark-grey hover:text-cc-white">See all work</a>
+        </div>
+    </div>
+</div>
+
+{# Footer #}
+<footer>
+    <div class="py-16 bg-cc-dark-grey">
+        <div class="container mx-auto max-w-container">
+            <div class="mb-16 max-w-64">
+                <img src="{{ site.theme.link }}/svg/concrete-logo.svg">
+            </div>
+            <div class="grid grid-cols-2">
+                <div>
+                    <h3 class="text-2xl leading-[0.8] text-cc-white">Say hello</h3>
+                </div>
+                <div class="text-2md">
+                    <h4 class="text-cc-white">Contact</h4>
+                    <p class=" text-cc-mid-grey">hello@concretecreative.co.uk</p>
+                    <p class="text-cc-mid-grey">0141 724 0089</p>
+
+                    <h4 class="mt-8 text-cc-white">Follow</h4>
+                    <div class="text-cc-mid-grey">
+                        <a href="#">Twitter</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">Linkedin</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-16 text-xs text-cc-white">
+                <p><a href="#">Terms &amp; Privacy Policy</a> &copy; {{ function('date', 'Y') }} Concrete Creative</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
     
 {{ function('wp_footer') }}
-
-<p class="text-cc-dark-grey">Dark grey</p>
 
 </body>
 </html>
