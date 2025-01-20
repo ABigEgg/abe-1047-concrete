@@ -1,0 +1,17 @@
+{
+    "name": "david/concrete",
+    "authors": [
+        {
+            "name": "David Hewitson",
+            "email": "david@abigegg.com"
+        }
+    ],
+    "require": {
+        "timber/timber": "^1.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true
+        }
+    }
+}
