@@ -20,7 +20,7 @@ module.exports = {
       "lg": rem(36),
       "2md": [ rem(32), rem(38.4) ],
       "md": rem(30),
-      "sm": rem(24),
+      "sm": [ rem(24), rem(28.8) ],
       "xs": rem(18),
     },
     container: {
