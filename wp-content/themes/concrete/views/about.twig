@@ -1,96 +1,186 @@
 {% extends 'base.twig' %}
 
 {% block main %}
-
-{# Masthead #}
-<div>
+  {# Masthead #}
+  <div>
     <header class="h-screen bg-cc-mid-grey">
-        <div class="container flex items-center justify-center h-full mx-auto max-w-container">
-            <h2 class="text-2xl text-cc-white">About Us</h2>
-        </div>
+      <div class="container flex items-center justify-center h-full mx-auto max-w-container">
+        <h2 class="text-2xl text-cc-white">About Us</h2>
+      </div>
     </header>
-</div>
+  </div>
 
-{# Intro #}
-<div>
+  {# Intro #}
+  <div>
     <div class="py-20">
-        <div class="container mx-auto max-w-container">
-            <div class="grid grid-cols-12">
-                <div class="col-span-6">
-                    <h3 class="mb-4 text-2xl text-cc-dark-grey">Who is Concrete</h3>
-                </div>
-                <div class="col-span-6">
-                    <h4 class="text-lg">About Us</h4>
-                    <p class="text-sm text-cc-mid-grey">We’re a small independent design studio that was founded in 2017 by Chris Smith. We firmly believe in the transformative power of creativity through a collaborative process with our clients. With expertise across a wide range of design services we craft contemporary and meaningful projects that leave a lasting impression.</p>
-                </div>
-            </div>
+      <div class="container mx-auto max-w-container">
+        <div class="grid grid-cols-12">
+          <div class="col-span-6">
+            <h3 class="mb-4 text-2xl text-cc-dark-grey">Who is Concrete</h3>
+          </div>
+          <div class="col-span-6">
+            <h4 class="text-lg">About Us</h4>
+            <p class="text-sm text-cc-mid-grey">We’re a small independent design studio that was founded in 2017 by Chris Smith. We firmly believe in the transformative power of creativity through a collaborative process with our clients. With expertise across a wide range of design services we craft contemporary and meaningful projects that leave a lasting impression.</p>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
-{# Working with us #}
-<div>
-    <div class="py-20">
-        <div class="container mx-auto">
-            <div class="grid grid-cols-12 gap-8">
-                <div class="col-span-6">
-                    <div class="rounded-lg bg-cc-mid-grey  h-[784px]">
-
-                    </div>
-                </div>
-                <div class="col-span-6">
-                    <div class="rounded-lg bg-cc-mid-grey h-[376px] mb-8">
-                    </div>
-                    
-                    <h4 class="text-lg">Working with us</h4>
-                    <p class="text-sm text-cc-mid-grey">We’re a small independent design studio that was founded in 2017 by Chris Smith. We firmly believe in the transformative power of creativity through a collaborative process with our clients. With expertise across a wide range of design services we craft contemporary and meaningful projects that leave a lasting impression.</p>
-
-                </div>
-            </div>
-        </div>
-    </div>  
-</div>
-
-{# Our Process #}
-
-{# Wide image #}
-<div>
+  {# Wide image #}
+  <div>
     <div class="min-h-[756px] bg-cc-mid-grey">
-        {# <img src=""> #}
+      {# <img src=""> #}
     </div>
-</div>
+  </div>
 
-{# Latest projects #}
-<div>
-    <div class="py-16 bg-cc-light-grey">
-        <div class="container mx-auto max-w-container">
-            <div>
-                <h3 class="mb-6 text-xl text-cc-dark-grey">Latest Projects</h3>
-            </div>
-            <div class="grid grid-cols-2 gap-8 auto-rows-max">
-                {% for i in 0..3 %}
-                    <a class="p-8 pt-16 rounded-lg bg-cc-mid-grey min-h-[376px] hover:scale-105 transition-all hover:shadow-lg shadow-none" href="#">
-                        <div class="flex flex-col justify-between h-full " >
-                            <div>
-                                <h4 class="text-xl text-cc-white">Description text to go here for project</h4>
-                            </div>
-                            <div class="flex gap-2">
-                                {% set tags = ['Branding', 'Design', 'Digital', 'Motion', 'Display' ] %}
-                                {% for tag in tags %}
-                                    <span  class="inline-block p-1 px-2 rounded text-cc-white bg-cc-white bg-opacity-30">{{ tag }}</span>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </a>  
-                {% endfor %}
-            </div>   
+  {# Working with us #}
+  <div>
+    <div class="py-20">
+      <div class="container mx-auto">
+        <div class="grid grid-cols-12 gap-8">
+          <div class="col-span-6">
+            <div class="rounded-lg bg-cc-mid-grey h-[784px]"></div>
+          </div>
+          <div class="col-span-6">
+            <div class="rounded-lg bg-cc-mid-grey h-[376px] mb-8"></div>
+            <h4 class="text-lg">Working with us</h4>
+            <p class="text-sm text-cc-mid-grey">We’re a small independent design studio that was founded in 2017 by Chris Smith. We firmly believe in the transformative power of creativity through a collaborative process with our clients. With expertise across a wide range of design services we craft contemporary and meaningful projects that leave a lasting impression.</p>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  {# Our Process #}
+  <div>
+    <div class="bg-cc-dark-grey">
+      <div class="py-20">
+        <div class="container mx-auto max-w-container">
+          <ul>
+            {% for i in 1..3 %}
+              <li class="{% if not loop.last %}{% endif %} border-b-cc-white">
+                <div class="grid grid-cols-12">
+                  <div class="col-span-9">
+                    <div class="pb-8">
+                      <h3 class="mt-0 mb-4 text-lg leading-none text-cc-white">Our Process</h3>
+                      <p class="text-sm text-cc-grey">Every project will have its own process but they are always guided by our three core principles</p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {# Clients #}
+  <div>
+    <div class="py-16 bg-cc-white">
+      <div class="container mx-auto max-w-container">
+        <div class="mb-20">
+          <h3 class="mb-4 text-xl text-cc-dark-grey">Who we've worked with</h3>
+          <div>
+            <p class="text-sm text-cc-mid-grey">We have worked with clients from all over the world and within a diverse range of industries. Local and international, big and small, public and private, established and start ups. Our clients are all innovators in their own fields and are not afraid to think outside of the box. Working with like minded individuals helps us to push each other to deliver outstanding creative solutions.</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-5 gap-24 auto-rows-max">
+          {% set logos = [
+            'animals-asia',
+            'ardardan',
+            'bighearted',
+            'citz',
+            'erskine',
+            'finlays',
+            'ies',
+            'montys',
+            'turner',
+            'urbancroft'
+          ] %}
+
+          {% for logo in logos %}
+            <div class="flex items-center">
+              <img src="{{ site.theme.link }}/svg/client-logos/{{ logo }}.svg">
+            </div>
+          {% endfor %}
+        </div>
+      </div>
     </div>
     <div class="py-16">
-        <div class="container flex justify-center mx-auto max-w-container">
-            <a href="#" class="inline-block py-1 border rounded-lg px-7 text-2md border-cc-dark-grey hover:bg-cc-dark-grey hover:text-cc-white">See all work</a>
-        </div>
+      <div class="container max-w-container">
+        <div class="grid grid-cols-12 gap-8">
+          <div class="col-span-6">
+            <div class=" bg-cc-mid-grey h-[376px] rounded-lg">
+              
+            </div>
+          </div>
+          <div class="col-span-6">
+            <h3 class="mb-4 text-xl text-cc-dark-grey">Why Concrete?</h3>
+            <div>
+              <p class="text-sm text-cc-mid-grey">We have worked with clients from all over the world and within a diverse range of industries. Local and international, big and small, public and private, established and start ups. Our clients are all innovators in their own fields and are not afraid to think outside of the box. Working with like minded individuals helps us to push each other to deliver outstanding creative solutions.</p>
+            </div>
+          </div>
+        </div>    
+      </div>
     </div>
-</div>
+  </div>
 
+  {# testimonials #}
+  <div>
+    <div class="py-16 bg-cc-light-grey">
+      <div class="container max-w-container">
+        <div class="grid grid-cols-12">
+          <div class="col-span-10 col-start-2">
+            <!-- Slider main container -->
+            <div class="swiper">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">Slide 1</div>
+                <div class="swiper-slide">Slide 2</div>
+                <div class="swiper-slide">Slide 3</div>
+                ...
+              </div>
+              <!-- If we need pagination -->
+              <div class="swiper-pagination"></div>
+
+              <!-- If we need navigation buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+
+              <!-- If we need scrollbar -->
+              <div class="swiper-scrollbar"></div>
+            </div>
+
+            <script>
+              const swiper = new Swiper('.swiper', {
+                // Optional parameters
+                direction: 'vertical',
+                loop: true,
+
+                // If we need pagination
+                pagination: {
+                  el: '.swiper-pagination',
+                },
+
+                // Navigation arrows
+                navigation: {
+                  nextEl: '.swiper-button-next',
+                  prevEl: '.swiper-button-prev',
+                },
+
+                // And if we need scrollbar
+                scrollbar: {
+                  el: '.swiper-scrollbar',
+                },
+              });
+            
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
