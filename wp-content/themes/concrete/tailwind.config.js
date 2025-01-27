@@ -19,7 +19,7 @@ module.exports = {
       "xl": [ rem(42), rem(50) ],
       "lg": rem(36),
       "2md": [ rem(32), rem(38.4) ],
-      "md": rem(30),
+      "md": [ rem(30), rem(36) ],
       "sm": [ rem(24), rem(28.8) ],
       "xs": rem(18),
     },

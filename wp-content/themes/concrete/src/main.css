@@ -5,3 +5,13 @@
 * {
     font-family: "Effra Trial", sans-serif;
 }
+
+.glide__arrow {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.fnt-bld {
+    font-family: "Effra Medium";
+    font-weight: 400;
+}
