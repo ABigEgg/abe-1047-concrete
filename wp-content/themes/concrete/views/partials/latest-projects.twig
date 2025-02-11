@@ -1,3 +1,5 @@
+{% set count = count|default(4) %}
+
 <div>
     <div class="py-16 {{ background }}">
         <div class="container mx-auto max-w-container">
@@ -5,7 +7,7 @@
                 <h3 class="mb-6 text-xl text-cc-dark-grey">Latest Projects</h3>
             </div>
             <div class="grid grid-cols-2 gap-8 auto-rows-max">
-                {% for i in 0..3 %}
+                {% for i in 1..count %}
                     <a class="p-8 pt-16 rounded-lg bg-cc-mid-grey min-h-[376px] hover:scale-105 transition-all hover:shadow-lg shadow-none" href="#">
                         <div class="flex flex-col justify-between h-full " >
                             <div>
@@ -25,7 +27,7 @@
     </div>
     <div class="py-16">
         <div class="container flex justify-center mx-auto max-w-container">
-            <a href="#" class="inline-block py-1 border rounded-lg px-7 text-2md border-cc-dark-grey hover:bg-cc-dark-grey hover:text-cc-white">See all work</a>
+            {% include 'partials/btn.twig' %}
         </div>
     </div>
 </div>

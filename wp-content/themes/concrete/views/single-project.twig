@@ -28,8 +28,41 @@
     </div>
   </div>
 
+  {# Paragraph #}
+  <div>
+    <div class="py-16">
+      <div class="container mx-auto max-w-container">
+        <div class="grid grid-cols-12 gap-8">
+          <div class="col-span-9">
+            <div class="mt-12">
+              <p>We were approached by New College Lanarkshire and SPS having previously worked with them on a number of different projects. It was important after such a momentous project that everything that was learned was documented. We designed two brochures for this project, an evaluation document and a resource book for teachers.</p>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {# CTA #}
+  <div class="bg-cc-light-grey">
+    <div class="py-16">
+      <div class="container mx-auto max-w-container">
+        <div class="grid grid-cols-12 gap-8">
+          <div class="col-span-9">
+            <div class="mt-12">
+              <h3>Have an idea of a project you’d like to work on?</h3>
+              <p>For more information on this project, please contact us.</p>
+              
+              {% include 'partials/btn.twig' %}
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   {# 3 images #}
-  <div class="bg-white">
+  {# <div class="bg-white">
     <div class="py-16">
       <div class="container mx-auto max-w-container">
         <div class="grid grid-cols-2 gap-8">
@@ -47,12 +80,36 @@
           <div class="col-span-9">
             <div class="mt-12">
               <p>We were approached by New College Lanarkshire and SPS having previously worked with them on a number of different projects. It was important after such a momentous project that everything that was learned was documented. We designed two brochures for this project, an evaluation document and a resource book for teachers.</p>
-            </div>
+            </div>  
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </div> #}
+
+  {# 3 images - grey background #}
+  {# <div class="bg-cc-light-grey">
+    <div class="py-16">
+      <div class="container mx-auto max-w-container">
+        <div class="grid grid-cols-2 gap-8">
+          <div class="col-span-2">
+            <img class="w-full rounded-lg" src="https://placehold.co/1120x544" />
+          </div>
+          <div class="col-span-1">
+            <img class="w-full rounded-lg" src="https://placehold.co/544x376" />
+          </div>
+          <div class="col-span-1">
+            <img class="w-full rounded-lg" src="https://placehold.co/544x376" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> #}
+
+  {% include 'partials/latest-projects.twig' with {
+    background: 'bg-cc-white',
+    count: 2
+  } %}
 
  
 {% endblock %}
