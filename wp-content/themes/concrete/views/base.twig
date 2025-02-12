@@ -20,10 +20,11 @@
     {{ function('wp_head')  }}
 
 </head>
-<body {{ function('body_class', 'antialiased') }} x-data="{ hamburger: false }" x-bind:class="hamburger ? 'overflow-y-hidden' : ''">
+<body {{ function('body_class', 'antialiased') }} x-data="{ hamburger: false }" x-bind:class="hamburger ? 'overflow-hidden' : ''">
 
 {# Navigation #}
-<div class="absolute top-0 left-0 z-30 w-full h-full bg-cc-dark-grey" x-show="hamburger">
+{# animate the nav wiping down and up when hamburger is clicked #}
+<div class="absolute top-0 left-0 z-30 w-full h-full overflow-hidden bg-cc-dark-grey" x-bind:class="hamburger ? 'h-full' : 'h-0'">
      <header class="container w-full mx-auto mt-8 max-w-container">
         <div class="flex items-center justify-between">
             <div class="w-[69px] h-[80px]">
