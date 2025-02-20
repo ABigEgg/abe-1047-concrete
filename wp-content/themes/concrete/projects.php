@@ -5,7 +5,21 @@
  */
 
 use Timber\Timber;
+use Timber\Post;
 
 $context = Timber::context();
 
-Timber::render( 'projects.twig', $context );
+// Get all projects with sorting
+$args = array(
+    'post_type' => 'project',
+    'posts_per_page' => -1,
+    'meta_key' => 'sort_order',
+    'orderby' => array(
+        'meta_value_num' => 'ASC',
+        'date' => 'DESC'
+    )
+);
+
+$context['projects'] = Timber::get_posts($args);
+
+Timber::render('projects.twig', $context);

@@ -4,12 +4,34 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx tailwindcss -i ./src/main.css -o ./dist/main.css --watch --content '**/*.twig'",
-    "sync": "browser-sync start --proxy 'abe-1047-concrete.test' --files 'dist/*.css' 'views/*.twig' '*.php' "
+    "build:css": "npx tailwindcss -i ./src/main.css -o ./dist/main.css --content '**/*.twig'",
+    "watch:css": "npx tailwindcss -i ./src/main.css -o ./dist/main.css --watch --content '**/*.twig'",
+    "build:vendor-css": "postcss src/vendor.css -o dist/vendor.css",
+    "watch:vendor-css": "postcss src/vendor.css -o dist/vendor.css --watch",
+    "build:js": "esbuild src/main.js --bundle --minify --outfile=dist/main.js",
+    "watch:js": "esbuild src/main.js --bundle --watch --outfile=dist/main.js",
+    "build": "npm run build:css && npm run build:vendor-css && npm run build:js",
+    "watch": "concurrently \"npm run watch:css\" \"npm run watch:vendor-css\" \"npm run watch:js\"",
+    "sync": "browser-sync start --proxy 'abe-1047-concrete.test' --files 'dist/*.css' 'dist/*.js' 'views/*.twig' '*.php'"
   },
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "@glidejs/glide": "^3.7.1",
+    "alpinejs": "^3.13.7",
+    "swiper": "^11.0.7"
+  },
   "devDependencies": {
-    "tailwindcss": "^3.4.16"
+    "tailwindcss": "^3.4.16",
+    "esbuild": "^0.20.1",
+    "concurrently": "^8.2.2",
+    "postcss": "^8.4.35",
+    "postcss-cli": "^11.0.0",
+    "postcss-import": "^16.0.1"
+  },
+  "postcss": {
+    "plugins": {
+      "postcss-import": {}
+    }
   }
 }

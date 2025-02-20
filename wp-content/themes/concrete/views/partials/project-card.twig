@@ -1,0 +1,12 @@
+<div class="flex flex-col justify-between h-full">
+  <div>
+    <h4 class="text-xl text-cc-white">{{ project.title }}</h4>
+  </div>
+  <div class="flex flex-wrap gap-2">
+    {% if project.terms('project_tags') %}
+      {% for tag in project.terms('project_tags') %}
+        <span class="inline-block p-1 px-2 bg-opacity-30 rounded text-cc-white bg-cc-white">{{ tag.name }}</span>
+      {% endfor %}
+    {% endif %}
+  </div>
+</div> 

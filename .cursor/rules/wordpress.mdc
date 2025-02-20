@@ -1,0 +1,10 @@
+---
+description: WordPress
+globs: 
+---
+
+# WordPress development
+
+We are developing a custom website for a client.
+
+Avoid editing any core WP files - only theme files, or plugins we have created ourselves.

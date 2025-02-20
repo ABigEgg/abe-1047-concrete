@@ -3,19 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ theme.link }}/dist/main.css">
     <link href="https://fonts.cdnfonts.com/css/effra-trial" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/effra-heavy" rel="stylesheet">
-    <script src="//unpkg.com/alpinejs" defer></script>
-    <script src="//unpkg.com/@glidejs/glide@3.7.1/dist/glide.js"></script>
-    <link rel="stylesheet" href="//unpkg.com/@glidejs/glide@3.7.1/dist/css/glide.core.min.css">
-    <link rel="stylesheet" href="//unpkg.com/@glidejs/glide@3.7.1/dist/css/glide.theme.min.css">
-    <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
-    {# <script src="//unpkg.com/swiper@11.2.1/swiper-bundle.min.js" defer></script>
-    <link href="//unpkg.com/swiper@11.2.1/swiper-bundle.min.css" rel="stylesheet"> #}
     
     {{ function('wp_head')  }}
 
@@ -24,16 +13,16 @@
 
 {# Navigation #}
 {# animate the nav wiping down and up when hamburger is clicked #}
-<div class="absolute top-0 left-0 z-30 w-full h-full overflow-hidden bg-cc-dark-grey" x-bind:class="hamburger ? 'h-full' : 'h-0'">
-     <header class="container w-full mx-auto mt-8 max-w-container">
-        <div class="flex items-center justify-between">
+<div class="overflow-hidden absolute top-0 left-0 z-30 w-full bg-cc-dark-grey" x-bind:class="hamburger ? 'h-full' : 'h-0'">
+     <header class="container mx-auto mt-8 w-full max-w-container">
+        <div class="flex justify-between items-center"> 
             <div class="w-[69px] h-[80px]">
-                <div>
+                <a href="{{ site.url }}" class="block transition-opacity hover:opacity-50">
                     {% include 'svg/concrete.svg' %}
-                </div>
+                </a>
             </div>
             <div class="w-8 h-6">
-                <a href="#" x-on:click="hamburger = !hamburger" class="relative transition-opacity -top-1 hover:opacity-50">
+                <a href="#" x-on:click="hamburger = !hamburger" class="relative -top-1 transition-opacity hover:opacity-50">
                     {% include 'svg/cross.svg' %} 
                 </a>
             </div>  
@@ -62,12 +51,12 @@
 
 {# Top nav #}
 <div class="absolute z-10 w-full">
-    <header class="container w-full mx-auto mt-8 max-w-container">
-        <div class="flex items-center justify-between">
+    <header class="container mx-auto mt-8 w-full max-w-container">
+        <div class="flex justify-between items-center">
             <div class="w-[69px] h-[80px]">
-                <div>
+                <a href="{{ site.url }}" class="block transition-opacity hover:opacity-50">
                     {% include 'svg/concrete.svg' %}
-                </div>
+                </a>
             </div>
             <div class="w-8 h-6">
                 <a href="#" x-on:click="hamburger = !hamburger" class="transition-opacity hover:opacity-50">
@@ -96,7 +85,7 @@
                 </div>
                 <div class="text-2md">
                     <h4 class="text-cc-white">Contact</h4>
-                    <p class=" text-cc-mid-grey">hello@concretecreative.co.uk</p>
+                    <p class="text-cc-mid-grey">hello@concretecreative.co.uk</p>
                     <p class="text-cc-mid-grey">0141 724 0089</p>
 
                     <h4 class="mt-8 text-cc-white">Follow</h4>
