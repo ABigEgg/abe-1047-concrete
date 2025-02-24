@@ -47,4 +47,16 @@
       </div>
     </div>
   </div>
+
+
+  {# CTA #}
+  {% include 'partials/cta.twig' %}
+
+  {# Similar Projects #}
+  {% include 'partials/latest-projects.twig' with {
+    background: 'bg-cc-white',
+    count: 2,
+    title: 'Similar Projects'
+  } %}
+
 {% endblock %}
