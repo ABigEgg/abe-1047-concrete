@@ -1,0 +1,19 @@
+{% set dark_variant = true %}
+{% extends 'base.twig' %}
+
+{% block main %}
+  <div class="min-h-screen bg-cc-white">
+    <div class="container mx-auto max-w-container">
+      <div class="flex flex-col justify-center items-center py-16 min-h-screen">
+        <h1 class="mb-4 text-3xl text-cc-dark-grey">404</h1>
+        <h2 class="mb-8 text-xl text-cc-dark-grey">Page Not Found</h2>
+        <p class="mb-12 max-w-lg text-sm text-center text-cc-mid-grey">Sorry, we couldn't find the page you're looking for. It might have been moved or deleted.</p>
+
+        <div class="flex gap-4">
+          <a href="/" class="inline-block px-8 py-4 text-sm rounded-lg transition-opacity text-cc-white bg-cc-dark-grey hover:opacity-80">Back to Home</a>
+          <a href="/work" class="inline-block px-8 py-4 text-sm rounded-lg transition-opacity text-cc-white bg-cc-mid-grey hover:opacity-80">View Our Work</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

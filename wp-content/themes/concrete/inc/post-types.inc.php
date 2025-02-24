@@ -32,6 +32,29 @@ function concrete_register_post_types() {
         'rewrite' => array('slug' => 'work')
     ));
 
+    register_post_type('service', array(
+        'labels' => array(
+            'name' => __('Services'),
+            'singular_name' => __('Service'),
+            'add_new' => __('Add New'),
+            'add_new_item' => __('Add New Service'),
+            'edit_item' => __('Edit Service'),
+            'new_item' => __('New Service'),
+            'view_item' => __('View Service'),
+            'search_items' => __('Search Services'),
+            'not_found' => __('No services found'),
+            'not_found_in_trash' => __('No services found in Trash'),
+            'all_items' => __('All Services'),
+            'menu_name' => __('Services')
+        ),
+        'public' => true,
+        'has_archive' => true,
+        'show_in_rest' => true,
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
+        'menu_icon' => 'dashicons-admin-generic',
+        'rewrite' => array('slug' => 'services')
+    ));
+
     register_taxonomy('project_tags', 'project', array(
         'labels' => array(
             'name' => __('Project Tags'),
