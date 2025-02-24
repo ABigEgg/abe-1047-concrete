@@ -14,41 +14,37 @@
   <div>
     <div class="py-16">
       <div class="container mx-auto max-w-container">
-        {% for services in services|batch(6) %}
-          {# 3 up layout #}
-          {% if services|slice(0, 3)|length > 0 %}
-            <div class="grid grid-cols-2 grid-rows-2 gap-8 {% if not loop.first %}mt-8{% endif %}">
-              {% for service in services|slice(0, 3) %}
-                <a class="p-8 pt-16 rounded-lg bg-cc-mid-grey min-h-[376px] hover:scale-105 transition-all hover:shadow-lg shadow-none {% if loop.first %}row-span-2{% endif %}" href="{{ service.link }}">
-                  {% include 'partials/service-card.twig' with { service: service } %}
-                </a>
-              {% endfor %}
-            </div>
-          {% endif %}
+        <div class="mb-20">
+          <h3 class="mb-4 text-3xl text-cc-dark-grey">Delivering creative solutions together</h3>
+          <p class="text-xl text-cc-mid-grey">We're a team of creative professionals who are passionate about delivering creative solutions that help businesses grow.</p>
+        </div>
 
-          {# 2 up layout #}
-          {% if services|slice(3, 2)|length > 0 %}
-            <div class="grid grid-cols-2 gap-8 mt-8">
-              {% for service in services|slice(3, 2) %}
-                <a class="p-8 pt-16 rounded-lg bg-cc-mid-grey min-h-[376px] hover:scale-105 transition-all hover:shadow-lg shadow-none" href="{{ service.link }}">
-                  {% include 'partials/service-card.twig' with { service: service } %}
-                </a>
-              {% endfor %}
-            </div>
-          {% endif %}
+        {% for service in 1..6 %}
+          <div class="grid grid-cols-12 gap-8 mb-20">
+            {% if loop.index is odd %}
+              <div class="col-span-6">
+                <div class="bg-cc-mid-grey h-[376px] rounded-lg"></div>
+              </div>
+              <div class="col-span-6">
+                <h4 class="text-lg text-cc-dark-grey">Service {{ service }}</h4>
+                <p class="mb-14 text-2md text-cc-mid-grey">We're a team of creative professionals who are passionate about delivering creative solutions that help businesses grow.</p>
 
-          {# 1 up layout #}
-          {% if services|slice(5, 1)|length > 0 %}
-            <div class="grid grid-cols-1 gap-8 mt-8">
-              {% for service in services|slice(5, 1) %}
-                <a class="p-8 pt-16 rounded-lg bg-cc-mid-grey min-h-[784px] hover:scale-105 transition-all hover:shadow-lg shadow-none" href="{{ service.link }}">
-                  {% include 'partials/service-card.twig' with { service: service } %}
-                </a>
-              {% endfor %}
-            </div>
-          {% endif %}
+                {% include 'partials/btn.twig' with { color: 'cc-mid-grey' } %}
+              </div>
+            {% else %}
+              <div class="col-span-6">
+                <h4 class="text-lg text-cc-dark-grey">Service {{ service }}</h4>
+                <p class="mb-14 text-2md text-cc-mid-grey">We're a team of creative professionals who are passionate about delivering creative solutions that help businesses grow.</p>
+
+                {% include 'partials/btn.twig' with { color: 'cc-mid-grey' } %}
+              </div>
+              <div class="col-span-6">
+                <div class="bg-cc-mid-grey h-[376px] rounded-lg"></div>
+              </div>
+            {% endif %}
+          </div>
         {% endfor %}
       </div>
     </div>
   </div>
-{% endblock %} 
+{% endblock %}

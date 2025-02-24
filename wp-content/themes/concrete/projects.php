@@ -1,11 +1,11 @@
 <?php 
+use Timber\Timber;
+use Timber\Post;
 
 /**
  * Template name: Projects
  */
 
-use Timber\Timber;
-use Timber\Post;
 
 $context = Timber::context();
 
