@@ -1,0 +1,98 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+  {# Masthead #}
+  <div>
+    <header class="h-screen bg-cc-mid-grey">
+      <div class="container flex justify-center items-center mx-auto h-full max-w-container">
+        <h2 class="text-3xl text-cc-white">Contact Us</h2>
+      </div>
+    </header>
+  </div>
+
+  {# Contact Form Section #}
+  {# Todo - replace with real contact form #}
+  <div class="py-16">
+    <div class="container mx-auto max-w-container">
+      <h3 class="mb-8 text-3xl text-cc-dark-grey">Got a bold idea?</h3>
+      <p class="mb-8 text-xl text-cc-mid-grey">Have a project in mind? We'd love to hear about it. Tell us what you're looking for below.</p>
+
+      <form id="contact-form" method="POST" action="{{ fn('admin_url', 'admin-ajax.php') }}" class="space-y-6">
+        <input type="hidden" name="action" value="submit_contact_form" />
+        {{ fn('wp_nonce_field', 'contact_form_nonce') }}
+
+        <div>
+          <label for="name" class="block mb-2 text-sm text-cc-dark-grey">Name *</label>
+          <input type="text" id="name" name="name" required class="px-4 py-2 w-full rounded-lg border border-cc-light-grey focus:outline-none focus:border-cc-dark-grey" />
+        </div>
+
+        <div>
+          <label for="email" class="block mb-2 text-sm text-cc-dark-grey">Email *</label>
+          <input type="email" id="email" name="email" required class="px-4 py-2 w-full rounded-lg border border-cc-light-grey focus:outline-none focus:border-cc-dark-grey" />
+        </div>
+
+        <div>
+          <label for="phone" class="block mb-2 text-sm text-cc-dark-grey">Phone</label>
+          <input type="tel" id="phone" name="phone" class="px-4 py-2 w-full rounded-lg border border-cc-light-grey focus:outline-none focus:border-cc-dark-grey" />
+        </div>
+
+        <div>
+          <label for="message" class="block mb-2 text-sm text-cc-dark-grey">Message *</label>
+          <textarea id="message" name="message" rows="6" required class="px-4 py-2 w-full rounded-lg border border-cc-light-grey focus:outline-none focus:border-cc-dark-grey"></textarea>
+        </div>
+
+        <div>
+          <button type="submit" class="inline-block px-7 py-2 rounded-lg border text-2md border-cc-dark-grey text-cc-dark-grey hover:bg-cc-dark-grey hover:text-cc-white">Send Message</button>
+        </div>
+
+        <div id="form-message" class="hidden"></div>
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+{% block javascript %}
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault()
+    
+      const form = this
+      const formMessage = document.getElementById('form-message')
+      const submitButton = form.querySelector('button[type="submit"]')
+    
+      // Disable submit button and show loading state
+      submitButton.disabled = true
+      submitButton.innerHTML = 'Sending...'
+    
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form)
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          formMessage.classList.remove('hidden')
+          formMessage.classList.add('p-4', 'rounded-lg', 'mb-4')
+    
+          if (data.success) {
+            formMessage.classList.add('bg-green-100', 'text-green-700')
+            formMessage.classList.remove('bg-red-100', 'text-red-700')
+            formMessage.textContent = data.message
+            form.reset()
+          } else {
+            formMessage.classList.add('bg-red-100', 'text-red-700')
+            formMessage.classList.remove('bg-green-100', 'text-green-700')
+            formMessage.textContent = data.message || 'An error occurred. Please try again.'
+          }
+        })
+        .catch((error) => {
+          formMessage.classList.remove('hidden')
+          formMessage.classList.add('bg-red-100', 'text-red-700', 'p-4', 'rounded-lg', 'mb-4')
+          formMessage.textContent = 'An error occurred. Please try again.'
+        })
+        .finally(() => {
+          submitButton.disabled = false
+          submitButton.innerHTML = 'Send Message'
+        })
+    })
+  </script>
+{% endblock %}
