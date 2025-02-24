@@ -1,5 +1,10 @@
+{# 
+  Preserve Tailwind classes:
+  bg-cc-mid-grey bg-cc-dark-grey bg-cc-light-grey bg-cc-grey bg-cc-white
+#}
+{% set background = background|default('cc-light-grey') %}
 {# CTA #}
-<div class="bg-cc-light-grey">
+<div class="bg-{{ background }}">
   <div class="py-20">
     <div class="container mx-auto max-w-container">
       <div class="grid grid-cols-12 gap-8">
