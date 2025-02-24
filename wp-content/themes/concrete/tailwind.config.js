@@ -15,7 +15,8 @@ module.exports = {
       "cc-white": "#fff",
     },
     fontSize: {
-      "2xl": [ rem(105), rem(105) ],
+      "3xl": [ rem(105), rem(126) ],
+      "2xl": [ rem(52), rem(62.4) ],
       "xl": [ rem(42), rem(50) ],
       "lg": rem(36),
       "2md": [ rem(32), rem(38.4) ],

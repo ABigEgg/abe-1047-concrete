@@ -4,8 +4,8 @@
   {# Masthead #}
   <div>
     <header class="h-screen bg-cc-mid-grey">
-      <div class="container flex items-center justify-center h-full mx-auto max-w-container">
-        <h2 class="text-2xl text-cc-white">About Us</h2>
+      <div class="container flex justify-center items-center mx-auto h-full max-w-container">
+        <h2 class="text-3xl text-cc-white">About Us</h2>
       </div>
     </header>
   </div>
@@ -16,11 +16,11 @@
       <div class="container mx-auto max-w-container">
         <div class="grid grid-cols-12">
           <div class="col-span-6">
-            <h3 class="mb-4 text-2xl text-cc-dark-grey">Who is Concrete</h3>
+            <h3 class="mb-4 text-3xl text-cc-dark-grey">Who is Concrete</h3>
           </div>
           <div class="col-span-6">
             <h4 class="text-lg text-cc-dark-grey">About Us</h4>
-            <p class="text-sm text-cc-mid-grey">We’re a small independent design studio that was founded in 2017 by Chris Smith. We firmly believe in the transformative power of creativity through a collaborative process with our clients. With expertise across a wide range of design services we craft contemporary and meaningful projects that leave a lasting impression.</p>
+            <p class="text-sm text-cc-mid-grey">We're a small independent design studio that was founded in 2017 by Chris Smith. We firmly believe in the transformative power of creativity through a collaborative process with our clients. With expertise across a wide range of design services we craft contemporary and meaningful projects that leave a lasting impression.</p>
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@
           <div class="col-span-6">
             <div class="rounded-lg bg-cc-mid-grey h-[376px] mb-8"></div>
             <h4 class="text-lg">Working with us</h4>
-            <p class="text-sm text-cc-mid-grey">We’re a small independent design studio that was founded in 2017 by Chris Smith. We firmly believe in the transformative power of creativity through a collaborative process with our clients. With expertise across a wide range of design services we craft contemporary and meaningful projects that leave a lasting impression.</p>
+            <p class="text-sm text-cc-mid-grey">We're a small independent design studio that was founded in 2017 by Chris Smith. We firmly believe in the transformative power of creativity through a collaborative process with our clients. With expertise across a wide range of design services we craft contemporary and meaningful projects that leave a lasting impression.</p>
           </div>
         </div>
       </div>
@@ -98,7 +98,7 @@
             <p class="text-sm text-cc-mid-grey">We have worked with clients from all over the world and within a diverse range of industries. Local and international, big and small, public and private, established and start ups. Our clients are all innovators in their own fields and are not afraid to think outside of the box. Working with like minded individuals helps us to push each other to deliver outstanding creative solutions.</p>
           </div>
         </div>
-        <div class="grid grid-cols-5 gap-24 auto-rows-max">
+        <div class="grid grid-cols-5 auto-rows-max gap-24">
           {% set logos = ['animals-asia', 'ardardan', 'bighearted', 'citz', 'erskine', 'finlays', 'ies', 'montys', 'turner', 'urbancroft'] %}
 
           {% for logo in logos %}
@@ -121,7 +121,7 @@
               <p class="text-sm text-cc-mid-grey">We have worked with clients from all over the world and within a diverse range of industries. Local and international, big and small, public and private, established and start ups. Our clients are all innovators in their own fields and are not afraid to think outside of the box. Working with like minded individuals helps us to push each other to deliver outstanding creative solutions.</p>
             </div>
           </div>
-        </div>
+        </div> 
       </div>
     </div>
   </div>
@@ -220,37 +220,16 @@
     background: 'bg-cc-white'
   } %}
 
-
   {# Our Services #}
-  <div>
-    <div class="bg-cc-mid-grey ">
-      <div class="container mx-auto max-w-container">
-          <div class="py-20">
-              <h3 class="mb-4 text-lg text-cc-white">Our services</h3>
-              <div class="grid grid-cols-12">
-                  <div class="col-span-6">
-                      <p class="text-md text-cc-dark-grey">Your brand needs to be as versatile as your business. It has to be bold, visible, clever, dynamic, inspire and move. That is why we have a range of services to facilitate all of your needs.</p>
-                  </div>
-                  <div class="col-span-3 col-start-10">
-                    <ul>  
-                      {% for i in 0..4 %}
-                        <li><a class="underline transition-opacity text-cc-white text-md hover:opacity-50" href="#">Item</a></li>
-                      {% endfor %}
-                    </ul>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </div>
-  </div>
+  {% include 'partials/our-services.twig' %}
 
   {# Get in touch #}
   <div>
     <div class="bg-cc-white">
       <div class="container mx-auto max-w-container">
         <div class="py-20">
-          <h3 class="mb-4 text-lg fnt-bld text-cc-dark-grey">Have an idea of a project you’d like to work on?</h3>
-          <p class="text-md text-cc-dark-grey" >We’d love to hear from you to see how we could help. Call us on 0141 724 0089 or tap the button below.</p>
+          <h3 class="mb-4 text-lg fnt-bld text-cc-dark-grey">Have an idea of a project you'd like to work on?</h3>
+          <p class="text-md text-cc-dark-grey" >We'd love to hear from you to see how we could help. Call us on 0141 724 0089 or tap the button below.</p>
         </div>
       </div>
     </div>

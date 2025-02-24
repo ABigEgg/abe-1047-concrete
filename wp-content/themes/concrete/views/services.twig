@@ -1,0 +1,54 @@
+{% extends 'base.twig' %}
+
+{% block main %}
+  {# Masthead #}
+  <div>
+    <header class="h-screen bg-cc-mid-grey">
+      <div class="container flex justify-center items-center mx-auto h-full max-w-container">
+        <h2 class="text-3xl text-cc-white">Our Services</h2>
+      </div>
+    </header>
+  </div>
+
+  {# Services #}
+  <div>
+    <div class="py-16">
+      <div class="container mx-auto max-w-container">
+        {% for services in services|batch(6) %}
+          {# 3 up layout #}
+          {% if services|slice(0, 3)|length > 0 %}
+            <div class="grid grid-cols-2 grid-rows-2 gap-8 {% if not loop.first %}mt-8{% endif %}">
+              {% for service in services|slice(0, 3) %}
+                <a class="p-8 pt-16 rounded-lg bg-cc-mid-grey min-h-[376px] hover:scale-105 transition-all hover:shadow-lg shadow-none {% if loop.first %}row-span-2{% endif %}" href="{{ service.link }}">
+                  {% include 'partials/service-card.twig' with { service: service } %}
+                </a>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          {# 2 up layout #}
+          {% if services|slice(3, 2)|length > 0 %}
+            <div class="grid grid-cols-2 gap-8 mt-8">
+              {% for service in services|slice(3, 2) %}
+                <a class="p-8 pt-16 rounded-lg bg-cc-mid-grey min-h-[376px] hover:scale-105 transition-all hover:shadow-lg shadow-none" href="{{ service.link }}">
+                  {% include 'partials/service-card.twig' with { service: service } %}
+                </a>
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          {# 1 up layout #}
+          {% if services|slice(5, 1)|length > 0 %}
+            <div class="grid grid-cols-1 gap-8 mt-8">
+              {% for service in services|slice(5, 1) %}
+                <a class="p-8 pt-16 rounded-lg bg-cc-mid-grey min-h-[784px] hover:scale-105 transition-all hover:shadow-lg shadow-none" href="{{ service.link }}">
+                  {% include 'partials/service-card.twig' with { service: service } %}
+                </a>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %} 

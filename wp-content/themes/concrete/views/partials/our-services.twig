@@ -1,0 +1,24 @@
+{# Our Services #}
+<div>
+  <div class="bg-cc-mid-grey">
+    <div class="container mx-auto max-w-container">
+      <div class="py-20">
+        <h3 class="mb-4 text-lg text-cc-white">Our services</h3>
+        <div class="grid grid-cols-12">
+          <div class="col-span-6">
+            <p class="text-md text-cc-dark-grey">Your brand needs to be as versatile as your business. It has to be bold, visible, clever, dynamic, inspire and move. That is why we have a range of services to facilitate all of your needs.</p>
+          </div>
+          <div class="col-span-3 col-start-10">
+            <ul>
+              {% for i in 0..4 %}
+                <li>
+                  <a class="underline transition-opacity text-cc-white text-md hover:opacity-50" href="#">Item</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

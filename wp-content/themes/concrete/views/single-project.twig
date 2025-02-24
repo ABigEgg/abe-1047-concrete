@@ -4,8 +4,8 @@
   {# Masthead #}
   <div>
     <header class="h-screen bg-cc-mid-grey">
-      <div class="container flex items-center justify-center h-full mx-auto max-w-container">
-        <h2 class="text-2xl text-cc-white">Family Sentence</h2>
+      <div class="container flex justify-center items-center mx-auto h-full max-w-container">
+        <h2 class="text-3xl text-cc-white">Family Sentence</h2>
       </div>
     </header>
   </div>
@@ -14,14 +14,16 @@
   <div>
     <div class="py-16">
       <div class="container mx-auto max-w-container">
-        <div class="grid grid-cols-2">
-          <div class="col-auto">
-            <p>Family Sentence</p>
-            <p>Design</p>
-            <h3>Building relationships through arts education in prisons</h3>
+        <div class="grid grid-cols-2 gap-8">
+          <div class="col-span-2">
+            <p class="text-sm text-cc-dark-grey">Family Sentence</p>
+            <p class="mb-0 text-sm text-cc-mid-grey">Design</p>
           </div>
           <div class="col-auto">
-            <p>What effect does a prison sentence have upon a family? This question was the catalyst for a life-changing two-year community theatre project by Barlinnie prisoners, and members of the Garthamlock Community Group, led by the Citizens Theatre in partnership with New College Lanarkshire and Scottish Prison Service (SPS). Funding was provided by Creative Scotland. The project also benefited from advice and support from Families Outside and other agencies working to support families affected by imprisonment.</p>
+            <h3 class="text-2xl text-cc-dark-grey">Building relationships through arts education in prisons</h3>
+          </div>
+          <div class="col-auto">
+            <p class="text-sm text-cc-mid-grey">What effect does a prison sentence have upon a family? This question was the catalyst for a life-changing two-year community theatre project by Barlinnie prisoners, and members of the Garthamlock Community Group, led by the Citizens Theatre in partnership with New College Lanarkshire and Scottish Prison Service (SPS). Funding was provided by Creative Scotland. The project also benefited from advice and support from Families Outside and other agencies working to support families affected by imprisonment.</p>
           </div>
         </div>
       </div>
@@ -35,7 +37,7 @@
         <div class="grid grid-cols-12 gap-8">
           <div class="col-span-9">
             <div class="mt-12">
-              <p>We were approached by New College Lanarkshire and SPS having previously worked with them on a number of different projects. It was important after such a momentous project that everything that was learned was documented. We designed two brochures for this project, an evaluation document and a resource book for teachers.</p>
+              <p class="text-sm text-cc-mid-grey">We were approached by New College Lanarkshire and SPS having previously worked with them on a number of different projects. It was important after such a momentous project that everything that was learned was documented. We designed two brochures for this project, an evaluation document and a resource book for teachers.</p>
             </div>  
           </div>
         </div>
@@ -45,13 +47,14 @@
 
   {# CTA #}
   <div class="bg-cc-light-grey">
-    <div class="py-16">
+    <div class="py-20">
       <div class="container mx-auto max-w-container">
         <div class="grid grid-cols-12 gap-8">
           <div class="col-span-9">
-            <div class="mt-12">
-              <h3>Have an idea of a project you’d like to work on?</h3>
-              <p>For more information on this project, please contact us.</p>
+            <div class="mt-0">
+              {# TODO - the font below is the wrong weight, needs licensed from Adobe #}
+              <h3 class="text-lg font-medium fnt-bld text-cc-dark-grey">Have an idea of a project you'd like to work on?</h3>
+              <p class="mb-8 text-md text-cc-dark-grey">For more information on this project, please contact us.</p>
               
               {% include 'partials/btn.twig' %}
             </div>  
@@ -108,7 +111,8 @@
 
   {% include 'partials/latest-projects.twig' with {
     background: 'bg-cc-white',
-    count: 2
+    count: 2,
+    title: 'Similar Projects'
   } %}
 
  
