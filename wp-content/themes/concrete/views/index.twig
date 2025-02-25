@@ -5,8 +5,7 @@
 {# Masthead #}
 <div>
     <header class="h-screen bg-cc-mid-grey">
-        <div class="container flex items-center justify-center h-full mx-auto max-w-container">
-            <h2 class="text-3xl text-cc-white">Page title</h2>
+        <div class="container flex justify-center items-center mx-auto h-full max-w-container">
         </div>
     </header>
 </div>
@@ -17,8 +16,8 @@
         <div class="container mx-auto max-w-container">
             <div class="grid grid-cols-12">
                 <div class="col-span-9">
-                    <h3 class="mb-4 text-3xl text-cc-dark-grey">Building brands with bold ideas</h3>
-                    <p class="text-xl text-cc-mid-grey">Collaborating with clients from various industries to develop unique concepts that captivate and connect with audiences.</p>
+                    <h3 class="mb-4 text-3xl text-cc-dark-grey">{{ intro.heading }}</h3>
+                    <p class="text-xl text-cc-mid-grey">{{ intro.text }}</p>
                 </div>
                 <div class="col-span-3">
 
@@ -30,7 +29,9 @@
 
 
 {% include 'partials/latest-projects.twig' with {
-    background: 'bg-cc-light-grey'
+    background: 'bg-cc-light-grey',
+    title: 'Featured Projects',
+    projects: featured_projects
 } %}
 
 

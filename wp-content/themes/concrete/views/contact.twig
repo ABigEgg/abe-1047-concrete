@@ -17,26 +17,61 @@
       <h3 class="mb-8 text-3xl text-cc-dark-grey">Got a bold idea?</h3>
       <p class="mb-8 text-xl text-cc-mid-grey">Have a project in mind? We'd love to hear about it. Tell us what you're looking for below.</p>
 
-      <form id="contact-form" method="POST" action="{{ fn('admin_url', 'admin-ajax.php') }}" class="space-y-6">
+      <form id="contact-form" method="POST" action="{{ fn('admin_url', 'admin-ajax.php') }}" class="grid grid-cols-2 gap-8">
         <input type="hidden" name="action" value="submit_contact_form" />
         {{ fn('wp_nonce_field', 'contact_form_nonce') }}
 
-        <div>
+        <div class="col-span-1">
           <label for="name" class="block mb-2 text-sm text-cc-dark-grey">Name *</label>
-          <input type="text" id="name" name="name" required class="px-4 py-2 w-full rounded-lg border border-cc-light-grey focus:outline-none focus:border-cc-dark-grey" />
+          <input type="text" id="name" name="name" required class="p-4 w-full text-lg rounded-lg border bg-cc-light-grey border-cc-light-grey focus:outline-none focus:border-cc-dark-grey" />
         </div>
 
-        <div>
+        <div class="col-span-1">
+          <label for="company" class="block mb-2 text-sm text-cc-dark-grey">Company *</label>
+          <input type="text" id="company" name="company" required class="px-4 py-2 w-full rounded-lg border border-cc-light-grey focus:outline-none focus:border-cc-dark-grey" />
+        </div>
+
+        <div class="col-span-1">
           <label for="email" class="block mb-2 text-sm text-cc-dark-grey">Email *</label>
           <input type="email" id="email" name="email" required class="px-4 py-2 w-full rounded-lg border border-cc-light-grey focus:outline-none focus:border-cc-dark-grey" />
         </div>
 
-        <div>
-          <label for="phone" class="block mb-2 text-sm text-cc-dark-grey">Phone</label>
+        <div class="col-span-1">
+          <label for="phone" class="block mb-2 text-sm text-cc-dark-grey">Telephone</label>
           <input type="tel" id="phone" name="phone" class="px-4 py-2 w-full rounded-lg border border-cc-light-grey focus:outline-none focus:border-cc-dark-grey" />
         </div>
 
-        <div>
+        <div class="col-span-2">
+          {# services required - row of checkboxes that look like buttons #}
+          <div class="flex flex-wrap gap-2">
+            <button class="px-4 py-2 rounded-lg border border-cc-light-grey focus:outline-none focus:border-cc-dark-grey">Branding</button>
+            <button class="px-4 py-2 rounded-lg border border-cc-light-grey focus:outline-none focus:border-cc-dark-grey">Web Design</button>
+            <button class="px-4 py-2 rounded-lg border border-cc-light-grey focus:outline-none focus:border-cc-dark-grey">Web Development</button>
+          </div>
+        </div>
+
+        <div class="col-span-1">
+          {# Budget - dropdown #}
+          <label for="budget" class="block mb-2 text-sm text-cc-dark-grey">Budget</label>
+          <select id="budget" name="budget" class="px-4 py-2 w-full rounded-lg border border-cc-light-grey focus:outline-none focus:border-cc-dark-grey">
+            <option value="">Select Budget</option>
+            <option value="1000">Less than £1,000</option>
+            <option value="1000-5000">£1,000 - £5,000</option>
+            <option value="5000-10000">£5,000 - £10,000</option>
+          </select>
+        </div>
+
+        <div class="col-span-1">
+          {# Timescale - dropdown #}
+          <label for="timescale" class="block mb-2 text-sm text-cc-dark-grey">Timescale</label>
+          <select id="timescale" name="timescale" class="px-4 py-2 w-full rounded-lg border border-cc-light-grey focus:outline-none focus:border-cc-dark-grey">
+            <option value="">Select Timescale</option>
+            <option value="1-2weeks">1-2 weeks</option>
+            <option value="2-4weeks">2-4 weeks</option>
+          </select>
+        </div>
+
+        <div class="col-span-2">
           <label for="message" class="block mb-2 text-sm text-cc-dark-grey">Message *</label>
           <textarea id="message" name="message" rows="6" required class="px-4 py-2 w-full rounded-lg border border-cc-light-grey focus:outline-none focus:border-cc-dark-grey"></textarea>
         </div>

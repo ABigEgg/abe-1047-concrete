@@ -5,7 +5,7 @@
   <div>
     <header class="h-screen bg-cc-mid-grey">
       <div class="container flex justify-center items-center mx-auto h-full max-w-container">
-        <h2 class="text-3xl text-cc-white">Family Sentence</h2>
+        <h2 class="text-3xl text-cc-white">{{ post.title }}</h2>
       </div>
     </header>
   </div>
@@ -16,14 +16,20 @@
       <div class="container mx-auto max-w-container">
         <div class="grid grid-cols-2 gap-8">
           <div class="col-span-2">
-            <p class="text-sm text-cc-dark-grey">Family Sentence</p>
-            <p class="mb-0 text-sm text-cc-mid-grey">Design</p>
+            <p class="text-sm text-cc-dark-grey">{{ post.title }}</p>
+            <p class="mb-0 text-sm text-cc-mid-grey">
+              {% if post.terms('project_tags') %}
+                {% for tag in post.terms('project_tags') %}
+                  {{ tag.name }}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+              {% endif %}
+            </p>
           </div>
           <div class="col-auto">
-            <h3 class="text-2xl text-cc-dark-grey">Building relationships through arts education in prisons</h3>
+            <h3 class="text-2xl text-cc-dark-grey">{{ post.project_intro_heading }}</h3>
           </div>
           <div class="col-auto">
-            <p class="text-sm text-cc-mid-grey">What effect does a prison sentence have upon a family? This question was the catalyst for a life-changing two-year community theatre project by Barlinnie prisoners, and members of the Garthamlock Community Group, led by the Citizens Theatre in partnership with New College Lanarkshire and Scottish Prison Service (SPS). Funding was provided by Creative Scotland. The project also benefited from advice and support from Families Outside and other agencies working to support families affected by imprisonment.</p>
+            <div class="text-sm text-cc-mid-grey">{{ post.project_intro_summary }}</div>
           </div>
         </div>
       </div>
@@ -109,11 +115,13 @@
     </div>
   </div> #}
 
-  {% include 'partials/latest-projects.twig' with {
-    background: 'bg-cc-white',
-    count: 2,
-    title: 'Similar Projects'
-  } %}
-
+  {# Similar Projects #}
+  {% if similar_projects %}
+    {% include 'partials/latest-projects.twig' with {
+      background: 'bg-cc-white',
+      title: 'Similar Projects',
+      projects: similar_projects
+    } %}
+  {% endif %}
  
 {% endblock %}

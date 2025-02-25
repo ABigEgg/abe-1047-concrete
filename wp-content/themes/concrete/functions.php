@@ -11,3 +11,4 @@ $timber = new Timber\Timber();
 require_once __DIR__ . '/inc/theme.inc.php';
 require_once __DIR__ . '/inc/post-types.inc.php';
 require_once __DIR__ . '/inc/contact-form.php';
+require_once __DIR__ . '/inc/acf.inc.php';

@@ -3,7 +3,7 @@ use Timber\Timber;
 use Timber\Post;
 
 /**
- * Template name: Projects
+ * Template name: Our Work
  */
 
 
