@@ -33,20 +33,22 @@
     </div>
   </div>
 
-  {# Paragraph #}
-  <div>
-    <div class="py-16">
-      <div class="container mx-auto max-w-container">
-        <div class="grid grid-cols-12 gap-8">
-          <div class="col-span-9">
-            <div class="mt-12">
-              <p class="text-sm text-cc-mid-grey">We were approached by New College Lanarkshire and SPS having previously worked with them on a number of different projects. It was important after such a momentous project that everything that was learned was documented. We designed two brochures for this project, an evaluation document and a resource book for teachers.</p>
-            </div>  
+  {# Project Content - Gutenberg #}
+  {% if post.content %}
+    <div class="bg-cc-white">
+      <div class="py-16">
+        <div class="container mx-auto max-w-container">
+          <div class="grid grid-cols-12 gap-8">
+            <div class="col-span-9">
+              <div class="project-content">
+                {{ post.content }}
+              </div>  
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  {% endif %}
 
   {# CTA #}
   <div class="bg-cc-light-grey">

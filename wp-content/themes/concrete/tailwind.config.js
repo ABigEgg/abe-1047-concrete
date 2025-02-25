@@ -5,7 +5,10 @@ function rem(px) {
 }
 
 module.exports = {
-  content: [ "views/*.twig" ],
+  content: [ 
+    "views/**/*.twig",
+    "views/*.twig" 
+  ],
   theme: {
     colors: {
       "cc-mid-grey": "#888c8c",

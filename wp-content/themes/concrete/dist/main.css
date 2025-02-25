@@ -622,16 +622,16 @@ video {
   top: 0px;
 }
 
+.z-0 {
+  z-index: 0;
+}
+
 .z-10 {
   z-index: 10;
 }
 
 .z-30 {
   z-index: 30;
-}
-
-.z-0 {
-  z-index: 0;
 }
 
 .col-auto {
@@ -673,16 +673,6 @@ video {
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
-}
-
-.-mx-8 {
-  margin-left: -2rem;
-  margin-right: -2rem;
-}
-
-.-my-8 {
-  margin-top: -2rem;
-  margin-bottom: -2rem;
 }
 
 .mb-0 {
@@ -737,12 +727,12 @@ video {
   margin-top: 5rem;
 }
 
-.mt-8 {
-  margin-top: 2rem;
-}
-
 .mt-4 {
   margin-top: 1rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
 }
 
 .block {
@@ -1059,16 +1049,16 @@ video {
   padding-bottom: 2rem;
 }
 
+.pl-0 {
+  padding-left: 0px;
+}
+
 .pt-16 {
   padding-top: 4rem;
 }
 
 .pt-8 {
   padding-top: 2rem;
-}
-
-.pl-0 {
-  padding-left: 0px;
 }
 
 .text-center {
@@ -1167,18 +1157,6 @@ video {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.opacity-70 {
-  opacity: 0.7;
-}
-
-.opacity-80 {
-  opacity: 0.8;
-}
-
-.opacity-40 {
-  opacity: 0.4;
-}
-
 .opacity-0 {
   opacity: 0;
 }
@@ -1201,16 +1179,6 @@ video {
   transition-duration: 150ms;
 }
 
-.transition-shadow {
-  transition-property: box-shadow;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.duration-500 {
-  transition-duration: 500ms;
-}
-
 .duration-200 {
   transition-duration: 200ms;
 }
@@ -1231,6 +1199,99 @@ video {
 .fnt-bld {
   font-family: "Effra Medium";
   font-weight: 400;
+}
+
+/* Project Content - Gutenberg Styling */
+
+.project-content {
+  --tw-text-opacity: 1;
+  color: rgb(136 140 140 / var(--tw-text-opacity, 1));
+}
+
+.project-content p {
+  margin-bottom: 1.5rem;
+  font-size: 1.50rem;
+  line-height: 1.80rem;
+}
+
+.project-content h2 {
+  margin-bottom: 1rem;
+  font-size: 2.63rem;
+  line-height: 3.13rem;
+  font-weight: 500;
+  --tw-text-opacity: 1;
+  color: rgb(70 77 83 / var(--tw-text-opacity, 1));
+}
+
+.project-content h3 {
+  margin-bottom: 0.75rem;
+  font-size: 2.25rem;
+  font-weight: 500;
+  --tw-text-opacity: 1;
+  color: rgb(70 77 83 / var(--tw-text-opacity, 1));
+}
+
+.project-content h4 {
+  margin-bottom: 0.75rem;
+  font-size: 1.50rem;
+  line-height: 1.80rem;
+  font-weight: 500;
+  --tw-text-opacity: 1;
+  color: rgb(70 77 83 / var(--tw-text-opacity, 1));
+}
+
+.project-content ul {
+  margin-bottom: 1.5rem;
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  font-size: 1.50rem;
+  line-height: 1.80rem;
+}
+
+.project-content ol {
+  margin-bottom: 1.5rem;
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  font-size: 1.50rem;
+  line-height: 1.80rem;
+}
+
+.project-content li {
+  margin-bottom: 0.5rem;
+}
+
+.project-content img {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.project-content .wp-block-image figcaption {
+  margin-top: 0.5rem;
+  font-size: 1.13rem;
+  font-style: italic;
+  --tw-text-opacity: 1;
+  color: rgb(70 77 83 / var(--tw-text-opacity, 1));
+}
+
+.project-content .wp-block-quote {
+  margin-bottom: 1.5rem;
+  border-left-width: 4px;
+  --tw-border-opacity: 1;
+  border-color: rgb(70 77 83 / var(--tw-border-opacity, 1));
+  padding-left: 1rem;
+  font-style: italic;
+}
+
+.project-content a {
+  --tw-text-opacity: 1;
+  color: rgb(70 77 83 / var(--tw-text-opacity, 1));
+  text-decoration-line: underline;
+}
+
+.project-content a:hover {
+  opacity: 0.8;
 }
 
 .hover\:scale-105:hover {
@@ -1297,30 +1358,10 @@ video {
   outline-offset: 2px;
 }
 
-.group:hover .group-hover\:scale-110 {
-  --tw-scale-x: 1.1;
-  --tw-scale-y: 1.1;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.group:hover .group-hover\:scale-95 {
-  --tw-scale-x: .95;
-  --tw-scale-y: .95;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
 .group:hover .group-hover\:scale-100 {
   --tw-scale-x: 1;
   --tw-scale-y: 1;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.group:hover .group-hover\:opacity-80 {
-  opacity: 0.8;
-}
-
-.group:hover .group-hover\:opacity-20 {
-  opacity: 0.2;
 }
 
 .group:hover .group-hover\:opacity-50 {

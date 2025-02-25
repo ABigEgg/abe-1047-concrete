@@ -16,11 +16,11 @@
 
         <div class="mt-20">
             <ul class="">
-                {% set items = ['About Us', 'Our Work', 'Services', 'Start a Project'] %}
-
-                {% for item in items %}
-                    <li><a href="#" class="pl-0 text-3xl leading-tight transition-all duration-200 ease-in-out text-cc-white hover:opacity-50 hover:pl-4">{{ item }}</a></li>
-                {% endfor %}
+                {% if mobile_menu %}
+                    {% for item in mobile_menu.items %}
+                        <li><a href="{{ item.link }}" class="pl-0 text-3xl leading-tight transition-all duration-200 ease-in-out text-cc-white hover:opacity-50 hover:pl-4" {{ item.target ? 'target="' ~ item.target ~ '"' }}>{{ item.title }}</a></li>
+                    {% endfor %}
+                {% endif %}
             </ul>
         </div>
 

@@ -15,3 +15,56 @@
     font-family: "Effra Medium";
     font-weight: 400;
 }
+
+/* Project Content - Gutenberg Styling */
+.project-content {
+    @apply text-cc-mid-grey;
+}
+
+.project-content p {
+    @apply mb-6 text-sm;
+}
+
+.project-content h2 {
+    @apply mb-4 text-xl font-medium text-cc-dark-grey;
+}
+
+.project-content h3 {
+    @apply mb-3 text-lg font-medium text-cc-dark-grey;
+}
+
+.project-content h4 {
+    @apply mb-3 text-sm font-medium text-cc-dark-grey;
+}
+
+.project-content ul {
+    @apply pl-6 mb-6 text-sm list-disc;
+}
+
+.project-content ol {
+    @apply pl-6 mb-6 text-sm list-decimal;
+}
+
+.project-content li {
+    @apply mb-2;
+}
+
+.project-content img {
+    @apply my-6 w-full rounded-lg;
+}
+
+.project-content .wp-block-image figcaption {
+    @apply mt-2 text-xs italic text-cc-dark-grey;
+}
+
+.project-content .wp-block-quote {
+    @apply pl-4 mb-6 italic border-l-4 border-cc-dark-grey;
+}
+
+.project-content a {
+    @apply underline text-cc-dark-grey;
+}
+
+.project-content a:hover {
+    @apply opacity-80;
+}

@@ -53,6 +53,12 @@ function concrete_theme_support() {
         'style',
         'script'
     ]);
+    
+    // Register navigation menu locations
+    register_nav_menus([
+        'main-navigation' => __('Main Navigation', 'concrete'),
+        'mobile-navigation' => __('Mobile Navigation', 'concrete'),
+    ]);
 }
 add_action('after_setup_theme', 'concrete_theme_support');
 
@@ -62,4 +68,16 @@ add_action('after_setup_theme', function() {
     
     // Project card thumbnail size
     add_image_size('project-card', 544, 376, true); // Width, Height, Crop
-}); 
+});
+
+// Add menus to Timber context
+add_filter('timber/context', 'concrete_add_to_context');
+function concrete_add_to_context($context) {
+    // Add main navigation to context
+    $context['main_menu'] = new Timber\Menu('main-navigation');
+    
+    // Add mobile navigation to context
+    $context['mobile_menu'] = new Timber\Menu('mobile-navigation');
+    
+    return $context;
+} 
