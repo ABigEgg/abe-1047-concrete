@@ -2,13 +2,10 @@
 
 {% block main %}
     {# Masthead #}
-    <div>
-        <header class="h-screen bg-cc-mid-grey">
-        <div class="container flex justify-center items-center mx-auto h-full max-w-container">
-            <h2 class="text-3xl text-cc-white">{{ post.title }}</h2>
-        </div>
-        </header>
-    </div>
+    {% include 'partials/masthead.twig' with {
+        title: post.title,
+        background_image: post.thumbnail.src
+    } %}
 
     {# Intro #}
     <div>

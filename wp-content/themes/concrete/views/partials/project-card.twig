@@ -1,12 +1,35 @@
-<div class="flex flex-col justify-between h-full">
-  <div>
-    <h4 class="text-xl text-cc-white">{{ project.title }}</h4>
-  </div>
-  <div class="flex flex-wrap gap-2">
-    {% if project.terms('project_tags') %}
-      {% for tag in project.terms('project_tags') %}
-        <span class="inline-block p-1 px-2 bg-opacity-30 rounded text-cc-white bg-cc-white">{{ tag.name }}</span>
-      {% endfor %}
+{% set custom_classes = custom_classes|default('min-h-[376px]') %}
+
+<a class="group rounded-lg bg-cc-mid-grey transition-all hover:shadow-lg hover:scale-105   duration-250 ease-in-out shadow-none {{ custom_classes }}" href="{{ project.link }}">
+  <div class="flex relative flex-col justify-between h-full">
+    {% if project.thumbnail %}
+      <div class="overflow-hidden absolute inset-0 z-0 rounded-lg">
+        <div class="w-full h-full transition-all ease-in-out duration-250">
+          <img 
+            src="{{ project.thumbnail.src('project-card') }}" 
+            alt="{{ project.title }}" 
+            class="object-cover w-full h-full transition-all ease-in-out scale-105 duration-250 group-hover:scale-100"
+          />
+          {# <div class="absolute inset-0 opacity-0 transition-opacity bg-cc-dark-grey group-hover:opacity-50"></div> #}
+        </div>
+      </div>
     {% endif %}
+
+    <div class="flex flex-col justify-between p-8 pt-16 h-full">
+      <div class="relative z-10">
+        <h4 class="text-xl text-cc-white">{{ project.title }}</h4>
+        {% if project.excerpt %}
+          <p class="mt-4 text-cc-white">{{ project.excerpt }}</p>
+        {% endif %}
+      </div>
+      
+      {% if project.terms('project_tags') %}
+        <div class="flex relative z-10 flex-wrap gap-2">
+          {% for tag in project.terms('project_tags') %}
+            <span class="inline-block p-1 px-2 bg-opacity-30 rounded text-cc-white bg-cc-white">{{ tag.name }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
   </div>
-</div> 
+</a> 

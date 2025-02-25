@@ -2,13 +2,10 @@
 
 {% block main %}
   {# Masthead #}
-  <div>
-    <header class="h-screen bg-cc-mid-grey">
-      <div class="container flex justify-center items-center mx-auto h-full max-w-container">
-        <h2 class="text-3xl text-cc-white">{{ post.title }}</h2>
-      </div>
-    </header>
-  </div>
+  {% include 'partials/masthead.twig' with {
+    title: post.title,
+    background_image: post.thumbnail.src
+  } %}
 
   {# Intro #}
   <div>
@@ -62,7 +59,10 @@
               <h3 class="text-lg font-medium fnt-bld text-cc-dark-grey">Have an idea of a project you'd like to work on?</h3>
               <p class="mb-8 text-md text-cc-dark-grey">For more information on this project, please contact us.</p>
               
-              {% include 'partials/btn.twig' %}
+              {% include 'partials/btn.twig' with { 
+                text: 'Get in touch',
+                url: '/contact'
+              } %}
             </div>  
           </div>
         </div>

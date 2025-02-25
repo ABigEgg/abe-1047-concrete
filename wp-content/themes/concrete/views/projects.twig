@@ -2,13 +2,10 @@
 
 {% block main %}
   {# Masthead #}
-  <div>
-    <header class="h-screen bg-cc-mid-grey">
-      <div class="container flex justify-center items-center mx-auto h-full max-w-container">
-        <h2 class="text-3xl text-cc-white">Our Work</h2>
-      </div>
-    </header>
-  </div>
+  {% include 'partials/masthead.twig' with {
+    title: 'Our Work',
+    background_image: post.thumbnail.src
+  } %}
 
   {# Projects #}
   <div>
@@ -19,9 +16,10 @@
           {% if projects|slice(0, 3)|length > 0 %}
             <div class="grid grid-cols-2 grid-rows-2 gap-8 {% if not loop.first %}mt-8{% endif %}">
               {% for project in projects|slice(0, 3) %}
-                <a class="p-8 pt-16 rounded-lg bg-cc-mid-grey min-h-[376px] hover:scale-105 transition-all hover:shadow-lg shadow-none {% if loop.first %}row-span-2{% endif %}" href="{{ project.link }}">
-                  {% include 'partials/project-card.twig' with { project: project } %}
-                </a>
+                {% include 'partials/project-card.twig' with { 
+                  project: project,
+                  custom_classes: loop.first ? 'min-h-[376px] row-span-2' : 'min-h-[376px]'
+                } %}
               {% endfor %}
             </div>
           {% endif %}
@@ -30,9 +28,10 @@
           {% if projects|slice(3, 2)|length > 0 %}
             <div class="grid grid-cols-2 gap-8 mt-8">
               {% for project in projects|slice(3, 2) %}
-                <a class="p-8 pt-16 rounded-lg bg-cc-mid-grey min-h-[376px] hover:scale-105 transition-all hover:shadow-lg shadow-none" href="{{ project.link }}">
-                  {% include 'partials/project-card.twig' with { project: project } %}
-                </a>
+                {% include 'partials/project-card.twig' with { 
+                  project: project,
+                  custom_classes: 'min-h-[376px]'
+                } %}
               {% endfor %}
             </div>
           {% endif %}
@@ -41,9 +40,10 @@
           {% if projects|slice(5, 1)|length > 0 %}
             <div class="grid grid-cols-1 gap-8 mt-8">
               {% for project in projects|slice(5, 1) %}
-                <a class="p-8 pt-16 rounded-lg bg-cc-mid-grey min-h-[784px] hover:scale-105 transition-all hover:shadow-lg shadow-none" href="{{ project.link }}">
-                  {% include 'partials/project-card.twig' with { project: project } %}
-                </a>
+                {% include 'partials/project-card.twig' with { 
+                  project: project,
+                  custom_classes: 'min-h-[784px]'
+                } %}
               {% endfor %}
             </div>
           {% endif %}

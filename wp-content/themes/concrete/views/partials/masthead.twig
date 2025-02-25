@@ -1,0 +1,22 @@
+{# 
+  Masthead Partial
+  
+  Parameters:
+  - title: String (optional) - The title to display in the masthead
+  - background_image: String (optional) - URL to a background image
+  - background_color: String (optional) - Background color class, defaults to bg-cc-mid-grey
+#}
+
+{% set background_color = background_color|default('bg-cc-mid-grey') %}
+{% set has_image = background_image is defined and background_image %}
+
+<div>
+  <header class="h-screen {% if has_image %}bg-cover bg-center{% else %}{{ background_color }}{% endif %}"
+          {% if has_image %}style="background-image: url('{{ background_image }}');"{% endif %}>
+    <div class="container flex justify-center items-center mx-auto h-full max-w-container">
+      {% if title is defined and title %}
+        <h2 class="text-3xl text-cc-white">{{ title }}</h2>
+      {% endif %}
+    </div>
+  </header>
+</div> 

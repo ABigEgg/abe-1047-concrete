@@ -54,4 +54,12 @@ function concrete_theme_support() {
         'script'
     ]);
 }
-add_action('after_setup_theme', 'concrete_theme_support'); 
+add_action('after_setup_theme', 'concrete_theme_support');
+
+// Register custom image sizes
+add_action('after_setup_theme', function() {
+    add_theme_support('post-thumbnails');
+    
+    // Project card thumbnail size
+    add_image_size('project-card', 544, 376, true); // Width, Height, Crop
+}); 

@@ -1,0 +1,62 @@
+{# Mobile Navigation Menu #}
+<div class="overflow-hidden absolute top-0 left-0 z-30 w-full bg-cc-dark-grey" x-bind:class="hamburger ? 'h-full' : 'h-0'">
+     <header class="container mx-auto mt-8 w-full max-w-container">
+        <div class="flex justify-between items-center"> 
+            <div class="w-[69px] h-[80px]">
+                <a href="{{ site.url }}" class="block transition-opacity hover:opacity-50">
+                    <img src="{{ site.theme.link }}/svg/concrete.svg" alt="Concrete Creative logo">
+                </a>
+            </div>
+            <div class="w-8 h-6">
+                <a href="#" x-on:click="hamburger = !hamburger" class="relative -top-1 transition-opacity hover:opacity-50">
+                    {% include 'svg/cross.svg' %} 
+                </a>
+            </div>  
+        </div>
+
+        <div class="mt-20">
+            <ul class="">
+                {% set items = ['About Us', 'Our Work', 'Services', 'Start a Project'] %}
+
+                {% for item in items %}
+                    <li><a href="#" class="pl-0 text-3xl leading-tight transition-all duration-200 ease-in-out text-cc-white hover:opacity-50 hover:pl-4">{{ item }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="mt-20">
+            <div>
+                <a href="#" class="text-xl transition-opacity text-cc-white hover:opacity-50">hello@concretecreative.co.uk</a>
+            </div>
+            <div>
+                <a href="#" class="text-xl transition-opacity text-cc-white hover:opacity-50">0141 724 0089</a>
+            </div>
+        </div>
+    </header>
+</div>
+
+{# Top Navigation #}
+<div class="absolute z-10 w-full">
+    <header class="container mx-auto mt-8 w-full max-w-container">
+        <div class="flex justify-between items-center">
+            <div class="w-[69px] h-[80px]">
+                <a href="{{ site.url }}" class="block transition-opacity hover:opacity-50">
+                    {% if dark_variant %}
+                        <img src="{{ site.theme.link }}/svg/concrete-dark.svg" alt="Concrete Creative logo">
+                    {% else %}
+                        <img src="{{ site.theme.link }}/svg/concrete.svg" alt="Concrete Creative logo">
+                    {% endif %}
+                </a>
+            </div>
+            <div class="w-8 h-6">
+                <a href="#" x-on:click="hamburger = !hamburger" class="transition-opacity hover:opacity-50">
+                    {% if dark_variant %}
+                        <img src="{{ site.theme.link }}/svg/hamburger-dark.svg" alt="Menu icon">
+                    {% else %}
+                        <img src="{{ site.theme.link }}/svg/hamburger.svg" alt="Menu icon">
+                    {% endif %}
+                </a>
+            </div>  
+        </div>
+    </header>
+</div> 
