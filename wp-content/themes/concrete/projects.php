@@ -22,4 +22,7 @@ $args = array(
 
 $context['projects'] = Timber::get_posts($args);
 
+// Add CTA options to context using helper function
+$context['global_cta'] = concrete_get_cta_options();
+
 Timber::render('projects.twig', $context);

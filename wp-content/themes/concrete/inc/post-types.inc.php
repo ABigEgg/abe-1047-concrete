@@ -52,7 +52,7 @@ function concrete_register_post_types() {
         'show_in_rest' => true,
         'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
         'menu_icon' => 'dashicons-admin-generic',
-        'rewrite' => array('slug' => 'services')
+        'rewrite' => array('slug' => 'service')
     ));
 
     register_taxonomy('project_tags', 'project', array(

@@ -49,10 +49,26 @@ $context['testimonials'] = [
     'items' => get_field('testimonials')
 ];
 
+// Use global CTA settings
+$context['global_cta'] = concrete_get_cta_options();
+// Keep page-specific CTA for backward compatibility
 $context['cta'] = [
     'heading' => get_field('cta_heading'),
     'text' => get_field('cta_text'),
     'phone' => get_field('cta_phone')
 ];
+
+// Get the 4 latest projects
+$projects_args = array(
+    'post_type' => 'project',
+    'posts_per_page' => 4,
+    'orderby' => 'date',
+    'order' => 'DESC'
+);
+
+$context['latest_projects'] = Timber::get_posts($projects_args);
+
+// Add services options to context using helper function
+$context['options'] = concrete_get_services_options();
 
 Timber::render( 'about.twig', $context );

@@ -12,4 +12,7 @@ $context['similar_projects'] = array_map(function($project) {
     return new Post($project);
 }, $similar_projects);
 
+// Add CTA options to context using helper function
+$context['global_cta'] = concrete_get_cta_options();
+
 Timber::render( 'single-project.twig', $context );

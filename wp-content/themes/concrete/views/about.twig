@@ -104,7 +104,7 @@
         </div>
       </div>
     </div>
-    <div class="py-16">
+    <div class="pb-20">
       <div class="container max-w-container">
         <div class="grid grid-cols-12 gap-8">
           <div class="col-span-6">
@@ -123,7 +123,7 @@
 
   {# testimonials #}
   <div>
-    <div class="py-16 bg-cc-light-grey">
+    <div class="pb-16 bg-cc-light-grey">
       <div class="container max-w-container">
         <div class="grid grid-cols-12">
           <div class="col-span-12">
@@ -217,22 +217,16 @@
 
   {# Latest projects #}
   {% include 'partials/latest-projects.twig' with {
-    background: 'bg-cc-white'
+    background: 'bg-cc-white',
+    projects: latest_projects
   } %}
 
   {# Our Services #}
   {% include 'partials/our-services.twig' %}
 
-  {# Get in touch #}
-  <div>
-    <div class="bg-cc-white">
-      <div class="container mx-auto max-w-container">
-        <div class="py-20">
-          <h3 class="mb-4 text-lg fnt-bld text-cc-dark-grey">{{ cta.heading }}</h3>
-          <p class="text-md text-cc-dark-grey">{{ cta.text }}</p>
-        </div>
-      </div>
-    </div>
-  </div>
+  {# Call to Action #}
+  {% include 'partials/cta.twig' with {
+    background: 'cc-white'
+  } %}
 
 {% endblock %}
