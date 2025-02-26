@@ -87,3 +87,94 @@ function concrete_add_to_context($context) {
     
     return $context;
 } 
+
+/**
+ * Enable SVG upload support
+ * 
+ * Add SVG to allowed mime types and fix display in media library
+ */
+function concrete_enable_svg_uploads($mimes) {
+    $mimes['svg'] = 'image/svg+xml';
+    $mimes['svgz'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter('upload_mimes', 'concrete_enable_svg_uploads');
+
+/**
+ * Fix SVG display in media library
+ */
+function concrete_fix_svg_media_display() {
+    echo '<style type="text/css">
+        .attachment-266x266, .thumbnail img {
+            width: 100% !important;
+            height: auto !important;
+        }
+    </style>';
+}
+add_action('admin_head', 'concrete_fix_svg_media_display');
+
+/**
+ * Fix SVG size attributes for proper display
+ */
+function concrete_fix_svg_size_attributes($response, $attachment, $meta) {
+    if ($response['mime'] === 'image/svg+xml' && empty($response['sizes'])) {
+        $svg_path = get_attached_file($attachment->ID);
+        
+        if (!$svg_path) {
+            return $response;
+        }
+        
+        $dimensions = concrete_get_svg_dimensions($svg_path);
+        
+        if ($dimensions) {
+            $response['sizes'] = array(
+                'full' => array(
+                    'url' => $response['url'],
+                    'width' => $dimensions['width'],
+                    'height' => $dimensions['height'],
+                    'orientation' => $dimensions['width'] > $dimensions['height'] ? 'landscape' : 'portrait'
+                )
+            );
+        }
+    }
+    
+    return $response;
+}
+add_filter('wp_prepare_attachment_for_js', 'concrete_fix_svg_size_attributes', 10, 3);
+
+/**
+ * Get SVG dimensions helper function
+ */
+function concrete_get_svg_dimensions($svg_path) {
+    $svg = simplexml_load_file($svg_path);
+    
+    if ($svg === false) {
+        return false;
+    }
+    
+    $attributes = $svg->attributes();
+    $width = (string) $attributes->width;
+    $height = (string) $attributes->height;
+    
+    // Check if width and height are defined
+    if (!$width || !$height) {
+        // Check for viewBox attribute
+        $viewbox = (string) $attributes->viewBox;
+        if ($viewbox) {
+            $viewbox_array = explode(' ', $viewbox);
+            if (count($viewbox_array) === 4) {
+                $width = floatval($viewbox_array[2]);
+                $height = floatval($viewbox_array[3]);
+            }
+        }
+    }
+    
+    if ($width && $height) {
+        return array(
+            'width' => intval($width),
+            'height' => intval($height)
+        );
+    }
+    
+    return false;
+} 

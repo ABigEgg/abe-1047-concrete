@@ -1392,6 +1392,10 @@ html, body {
   opacity: 0.5;
 }
 
+.hover\:opacity-75:hover {
+  opacity: 0.75;
+}
+
 .hover\:opacity-80:hover {
   opacity: 0.8;
 }

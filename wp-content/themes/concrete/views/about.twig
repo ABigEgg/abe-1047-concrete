@@ -13,11 +13,11 @@
       <div class="container mx-auto max-w-container">
         <div class="grid grid-cols-12">
           <div class="col-span-6">
-            <h3 class="mb-4 text-3xl text-cc-dark-grey">Who is Concrete</h3>
+            <h3 class="mb-4 text-3xl text-cc-dark-grey">{{ intro.heading }}</h3>
           </div>
           <div class="col-span-6">
-            <h4 class="text-lg text-cc-dark-grey">About Us</h4>
-            <p class="text-sm text-cc-mid-grey">We're a small independent design studio that was founded in 2017 by Chris Smith. We firmly believe in the transformative power of creativity through a collaborative process with our clients. With expertise across a wide range of design services we craft contemporary and meaningful projects that leave a lasting impression.</p>
+            <h4 class="text-lg text-cc-dark-grey">{{ intro.subheading }}</h4>
+            <p class="text-sm text-cc-mid-grey">{{ intro.text }}</p>
           </div>
         </div>
       </div>
@@ -27,7 +27,7 @@
   {# Wide image #}
   <div>
     <div class="min-h-[756px] bg-cc-mid-grey">
-      {# <img src=""> #}
+      <img src="{{ feature_image.url }}" alt="{{ feature_image.alt }}" class="object-cover w-full h-full">
     </div>
   </div>
 
@@ -37,12 +37,12 @@
       <div class="container mx-auto">
         <div class="grid grid-cols-12 gap-8">
           <div class="col-span-6">
-            <div class="rounded-lg bg-cc-mid-grey h-[784px]"></div>
+            <img src="{{ working_with_us.main_image.url }}" alt="{{ working_with_us.main_image.alt }}" class="rounded-lg h-[784px] w-full object-cover">
           </div>
           <div class="col-span-6">
-            <div class="rounded-lg bg-cc-mid-grey h-[376px] mb-8"></div>
-            <h4 class="text-lg">Working with us</h4>
-            <p class="text-sm text-cc-mid-grey">We're a small independent design studio that was founded in 2017 by Chris Smith. We firmly believe in the transformative power of creativity through a collaborative process with our clients. With expertise across a wide range of design services we craft contemporary and meaningful projects that leave a lasting impression.</p>
+            <img src="{{ working_with_us.secondary_image.url }}" alt="{{ working_with_us.secondary_image.alt }}" class="rounded-lg h-[376px] w-full object-cover mb-8">
+            <h4 class="text-lg">{{ working_with_us.heading }}</h4>
+            <p class="text-sm text-cc-mid-grey">{{ working_with_us.text }}</p>
           </div>
         </div>
       </div>
@@ -59,21 +59,21 @@
             <div class="grid grid-cols-12">
               <div class="col-span-12">
                 <div class="pb-8">
-                  <h3 class="mt-0 mb-4 text-lg leading-none text-cc-white">Our Process</h3>
-                  <p class="text-sm text-cc-grey">Every project will have its own process but they are always guided by our three core principles</p>
+                  <h3 class="mt-0 mb-4 text-lg leading-none text-cc-white">{{ process.heading }}</h3>
+                  <p class="text-sm text-cc-grey">{{ process.description }}</p>
                 </div>
               </div>
             </div>
           </div>
 
           <ul>
-            {% for i in 1..3 %}
-              <li class="{% if not loop.last %} border-b {% endif %} pt-8   border-b-cc-white">
+            {% for item in process.items %}
+              <li class="{% if not loop.last %} border-b {% endif %} pt-8 border-b-cc-white">
                 <div class="grid grid-cols-12">
                   <div class="col-span-9">
                     <div class="pb-8">
-                      <h3 class="mt-0 mb-4 text-lg leading-none text-cc-white">Our Process</h3>
-                      <p class="text-sm text-cc-grey">Every project will have its own process but they are always guided by our three core principles</p>
+                      <h3 class="mt-0 mb-4 text-lg leading-none text-cc-white">{{ item.process_step_title }}</h3>
+                      <p class="text-sm text-cc-grey">{{ item.process_step_description }}</p>
                     </div>
                   </div>
                 </div>
@@ -90,17 +90,15 @@
     <div class="py-16 bg-cc-white">
       <div class="container mx-auto max-w-container">
         <div class="mb-20">
-          <h3 class="mb-4 text-xl text-cc-dark-grey">Who we've worked with</h3>
+          <h3 class="mb-4 text-xl text-cc-dark-grey">{{ clients.heading }}</h3>
           <div>
-            <p class="text-sm text-cc-mid-grey">We have worked with clients from all over the world and within a diverse range of industries. Local and international, big and small, public and private, established and start ups. Our clients are all innovators in their own fields and are not afraid to think outside of the box. Working with like minded individuals helps us to push each other to deliver outstanding creative solutions.</p>
+            <p class="text-sm text-cc-mid-grey">{{ clients.description }}</p>
           </div>
         </div>
         <div class="grid grid-cols-5 auto-rows-max gap-24">
-          {% set logos = ['animals-asia', 'ardardan', 'bighearted', 'citz', 'erskine', 'finlays', 'ies', 'montys', 'turner', 'urbancroft'] %}
-
-          {% for logo in logos %}
+          {% for logo in clients.logos %}
             <div class="flex items-center">
-              <img src="{{ site.theme.link }}/svg/client-logos/{{ logo }}.svg" />
+              <img src="{{ logo.client_logo.url }}" alt="{{ logo.client_name }}">
             </div>
           {% endfor %}
         </div>
@@ -110,12 +108,12 @@
       <div class="container max-w-container">
         <div class="grid grid-cols-12 gap-8">
           <div class="col-span-6">
-            <div class="bg-cc-mid-grey h-[376px] rounded-lg"></div>
+            <img src="{{ why_concrete.image.url }}" alt="{{ why_concrete.heading }}" class="rounded-lg h-[376px] w-full object-cover">
           </div>
           <div class="col-span-6">
-            <h3 class="mb-4 text-xl text-cc-dark-grey">Why Concrete?</h3>
+            <h3 class="mb-4 text-xl text-cc-dark-grey">{{ why_concrete.heading }}</h3>
             <div>
-              <p class="text-sm text-cc-mid-grey">We have worked with clients from all over the world and within a diverse range of industries. Local and international, big and small, public and private, established and start ups. Our clients are all innovators in their own fields and are not afraid to think outside of the box. Working with like minded individuals helps us to push each other to deliver outstanding creative solutions.</p>
+              <p class="text-sm text-cc-mid-grey">{{ why_concrete.text }}</p>
             </div>
           </div>
         </div> 
@@ -133,12 +131,17 @@
               <div class="glide">
                 <div class="glide__track" data-glide-el="track">
                   <ul class="glide__slides">
-                    {% for i in 1..3 %}
+                    {% for testimonial in testimonials.items %}
                       <li class="glide__slide">
                         <div class="max-w-[736px] mx-auto">
-                          <h3 class="mb-4 text-lg text-cc-dark-grey">What our clients say</h3>
-                          <p class="mb-2 text-md text-cc-dark-grey">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam velit risus, venenatis vitae euismod quis, vestibulum at turpis. Suspendisse luctus mi sed eros congue, at molestie urna mattis.</p>
-                          <p class="text-sm text-cc-dark-grey">Persons Name, Company</p>
+                          <h3 class="mb-4 text-lg text-cc-dark-grey">{{ testimonials.heading }}</h3>
+                          <p class="mb-2 text-md text-cc-dark-grey">{{ testimonial.testimonial_text }}</p>
+                          <p class="text-sm text-cc-dark-grey">
+                            {{ testimonial.testimonial_author }}
+                            {% if testimonial.testimonial_company %}
+                              , {{ testimonial.testimonial_company }}
+                            {% endif %}
+                          </p>
                         </div>
                       </li>
                     {% endfor %}
@@ -225,8 +228,8 @@
     <div class="bg-cc-white">
       <div class="container mx-auto max-w-container">
         <div class="py-20">
-          <h3 class="mb-4 text-lg fnt-bld text-cc-dark-grey">Have an idea of a project you'd like to work on?</h3>
-          <p class="text-md text-cc-dark-grey" >We'd love to hear from you to see how we could help. Call us on 0141 724 0089 or tap the button below.</p>
+          <h3 class="mb-4 text-lg fnt-bld text-cc-dark-grey">{{ cta.heading }}</h3>
+          <p class="text-md text-cc-dark-grey">{{ cta.text }}</p>
         </div>
       </div>
     </div>
