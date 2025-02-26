@@ -1,7 +1,7 @@
 {#
  # Concrete Gallery Block Template
  #
- # @param layout          string  Layout type (layout_a, layout_b, layout_c)
+ # @param layout          string  Layout type (layout_a, layout_b, layout_c, layout_d)
  # @param background      string  Background color (white, grey)
  # @param gallery_images  array   Gallery images repeater
  # @param block_id        string  Block ID
@@ -9,7 +9,7 @@
  # @param is_preview      bool    Whether block is being previewed
  #}
 
-{% set background_class = background == 'grey' ? 'bg-grey' : 'bg-white' %}
+{% set background_class = background == 'grey' ? 'bg-cc-light-grey' : 'bg-cc-white' %}
 
 <div id="{{ block_id }}" class="{{ class_name }} {{ background_class }} {{ layout }}">
     <div class="container">
@@ -17,6 +17,7 @@
             {# Layout A: Large image on top, two images side-by-side below with equal heights #}
             <div class="concrete-gallery__layout-a">
                 {% if gallery_images %}
+
                     <div class="concrete-gallery__main">
                         {% if gallery_images[0].image %}
                             <div class="concrete-gallery__item concrete-gallery__item--main">
@@ -98,6 +99,42 @@
                         </div>
                     {% endif %}
                 {% endfor %}
+            </div>
+
+        {% elseif layout == 'layout_d' %}
+            {# Layout D - Large image right spanning height, two stacked on left (opposite of Layout B) #}
+            <div class="concrete-gallery__layout-d">
+                {% if gallery_images %}
+                    <div class="concrete-gallery__grid-featured">
+                        <div class="concrete-gallery__secondary">
+                            {% for item in gallery_images %}
+                                {% if loop.index >= 1 and loop.index <= 2 %}
+                                    <div class="concrete-gallery__item concrete-gallery__item--secondary">
+                                        <div class="concrete-gallery__image-wrapper">
+                                            <img src="{{ item.image.url }}" alt="{{ item.image.alt|e }}" class="concrete-gallery__image">
+                                        </div>
+                                        {% if item.caption %}
+                                            <div class="concrete-gallery__caption">{{ item.caption }}</div>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        
+                        <div class="concrete-gallery__featured">
+                            {% if gallery_images[2].image %}
+                                <div class="concrete-gallery__item concrete-gallery__item--featured">
+                                    <div class="concrete-gallery__image-wrapper">
+                                        <img src="{{ gallery_images[2].image.url }}" alt="{{ gallery_images[2].image.alt|e }}" class="concrete-gallery__image">
+                                    </div>
+                                    {% if gallery_images[2].caption %}
+                                        <div class="concrete-gallery__caption">{{ gallery_images[2].caption }}</div>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
             </div>
         {% endif %}
     </div>

@@ -72,7 +72,7 @@ function concrete_register_acf_blocks() {
         'icon'              => 'images-alt2',
         'keywords'          => array('gallery', 'images', 'concrete'),
         'supports'          => array(
-            'align' => true,
+            'align' => false,
             'mode' => false,
             'jsx' => true
         ),
@@ -105,6 +105,7 @@ function concrete_register_block_fields() {
                     'layout_a' => 'Layout A',
                     'layout_b' => 'Layout B',
                     'layout_c' => 'Layout C',
+                    'layout_d' => 'Layout D',
                 ),
                 'default_value' => 'layout_a',
             ),

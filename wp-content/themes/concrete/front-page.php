@@ -1,8 +1,11 @@
 <?php 
+
 use Timber\Timber;
 use Timber\Post;
 
 $context = Timber::context();
+
+$context['post'] = new Post;
 
 // Add ACF fields to context
 $context['intro'] = [

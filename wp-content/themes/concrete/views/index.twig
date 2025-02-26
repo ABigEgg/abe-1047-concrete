@@ -3,7 +3,9 @@
 {% block main %}
 
 {# Masthead #}
-{% include 'partials/masthead.twig' %}
+{% include 'partials/masthead.twig' with {
+    background_image: post.thumbnail.src
+} %}
 
 {# Intro #}
 <div>

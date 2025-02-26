@@ -25,12 +25,22 @@ html, body {
     @apply mb-4 text-xl font-medium text-cc-dark-grey;
 }
 
+.editor-styles-wrapper >*:first-child, 
+.concrete-content >*:first-child {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
 .concrete-content p, .editor-styles-wrapper p {
     @apply text-cc-mid-grey;
 }
 
 .concrete-content p, .editor-styles-wrapper p {
-    @apply mb-6 text-sm max-w-[52rem];
+    @apply text-sm max-w-[52rem];
+}
+
+.concrete-content p + p, .editor-styles-wrapper p + p {
+    @apply mb-8;
 }
 
 .concrete-content ul, .editor-styles-wrapper ul {
@@ -46,7 +56,7 @@ html, body {
 }
 
 .concrete-content img:not(.mwl-img), .editor-styles-wrapper img:not(.mwl-img){
-    @apply my-6 w-full rounded-lg;
+    @apply my-20 w-full rounded-lg;
 }
 
 .concrete-content .mwl-img, .editor-styles-wrapper .mwl-img {
@@ -108,11 +118,11 @@ apply max-w-container and mx-auto to all content blocks
 }
 
 /* Concrete Gallery Block Styles */
-.concrete-gallery {
-    @apply relative py-20;
+.concrete-gallery.bg-cc-light-grey {
+    @apply relative py-20 my-16;
 }
 
-.concrete-gallery::before {
+.concrete-gallery.bg-cc-light-grey::before {
     content: '';
     position: absolute;
     left: -1000vw;
@@ -122,13 +132,23 @@ apply max-w-container and mx-auto to all content blocks
     top: 0;
 }
 
-.concrete-gallery.bg-grey {
-    @apply bg-cc-light-grey;
+/* Layout A - Large image on top, two side-by-side below */
+.concrete-gallery {
+    @apply py-16;
 }
 
-/* Layout A - Large image on top, two side-by-side below */
 .concrete-gallery__layout-a .concrete-gallery__main {
-    @apply mb-6;
+    @apply mb-6; /* Add margin between main image and secondary images */
+}
+
+.concrete-gallery__layout-a .concrete-gallery__main .concrete-gallery__image-wrapper {
+    @apply relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio for main image */
+    height: 0;
+}
+
+.concrete-gallery__layout-a .concrete-gallery__main .concrete-gallery__image {
+    @apply object-cover object-center absolute top-0 left-0 w-full h-full;
 }
 
 .concrete-gallery__layout-a .concrete-gallery__grid {
@@ -145,7 +165,7 @@ apply max-w-container and mx-auto to all content blocks
 }
 
 .concrete-gallery__layout-b .concrete-gallery__featured {
-    @apply flex-[3];
+    @apply flex-[2];
 }
 
 .concrete-gallery__layout-b .concrete-gallery__secondary {
@@ -164,6 +184,38 @@ apply max-w-container and mx-auto to all content blocks
 /* Layout C - Three large images stacked vertically */
 .concrete-gallery__layout-c .concrete-gallery__item--full {
     @apply mb-6;
+}
+
+/* Layout D - Large image on right, two stacked on left */
+.concrete-gallery__layout-d .concrete-gallery__grid-featured {
+    @apply flex gap-6;
+}
+
+.concrete-gallery__layout-d .concrete-gallery__featured {
+    @apply flex-[2];
+}
+
+.concrete-gallery__layout-d .concrete-gallery__secondary {
+    @apply flex-[2] flex flex-col gap-6;
+}
+
+.concrete-gallery__layout-d .concrete-gallery__item--featured,
+.concrete-gallery__layout-d .concrete-gallery__item--secondary {
+    @apply h-full;
+}
+
+.concrete-gallery__layout-d .concrete-gallery__secondary .concrete-gallery__item {
+    @apply flex-1;
+}
+
+.concrete-gallery__layout-d .concrete-gallery__featured .concrete-gallery__image-wrapper {
+    @apply relative;
+    padding-bottom: 100%; /* Square aspect ratio for featured image */
+    height: 100%;
+}
+
+.concrete-gallery__layout-d .concrete-gallery__featured .concrete-gallery__image {
+    @apply object-cover object-center absolute top-0 left-0 w-full h-full;
 }
 
 /* Common styles */
@@ -201,6 +253,11 @@ apply max-w-container and mx-auto to all content blocks
     margin: 0 !important;
 }
 
+
+.concrete-gallery__layout-c .concrete-gallery__wrapper {
+    margin-bottom: 2rem !important;
+}
+
 .concrete-gallery__caption {
     @apply mt-2 text-sm text-cc-mid-grey;
 }
@@ -208,13 +265,14 @@ apply max-w-container and mx-auto to all content blocks
 /* CSS for equal heights */
 .concrete-gallery__layout-a .concrete-gallery__item--secondary .concrete-gallery__image-wrapper,
 .concrete-gallery__layout-b .concrete-gallery__item--secondary .concrete-gallery__image-wrapper {
-    @apply relative h-0;
-    padding-bottom: 75%; /* Create aspect ratio for images */
+    @apply relative;
+    padding-bottom: 75%; /* Create aspect ratio for images (4:3) */
+    height: 0; /* Reset height */
 }
 
 .concrete-gallery__layout-a .concrete-gallery__item--secondary .concrete-gallery__image,
 .concrete-gallery__layout-b .concrete-gallery__item--secondary .concrete-gallery__image {
-    @apply absolute top-0 left-0 w-full h-full;
+    @apply object-cover object-center absolute top-0 left-0 w-full h-full;
 }
 
 /* Editor styles - ensure these show up in admin context */
@@ -222,11 +280,32 @@ apply max-w-container and mx-auto to all content blocks
     margin: 0 !important;
 }
 
+/* Make images and galleries work together */
+.editor-styles-wrapper .wp-block-image:has(+ .concrete-gallery) > img, 
+.concrete-content .wp-block-image:has(+ .concrete-gallery) > img,
+.editor-styles-wrapper .concrete-gallery.bg-cc-white:has(+ .wp-block-image),
+.concrete-content .concrete-gallery.bg-cc-white:has(+ .wp-block-image) {
+    @apply pb-0 mb-0;
+}
+
+.editor-styles-wrapper .wp-block-image + .concrete-gallery,
+.concrete-content .wp-block-image + .concrete-gallery {
+    @apply pt-8;
+}
+
+.editor-styles-wrapper .concrete-gallery + .wp-block-image >img  ,
+.concrete-content .concrete-gallery + .wp-block-image >img  {
+    margin-top: 2rem !important;
+}
+
+
 /* Override WordPress default spacing in editor and frontend */
 .wp-block-acf-concrete-gallery {
     margin-top: 0 !important;
     margin-bottom: 2rem !important;
 }
+
+
 
 /* LightGallery customizations */
 .lg-backdrop {

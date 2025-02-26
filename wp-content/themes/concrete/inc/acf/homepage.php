@@ -47,7 +47,10 @@ acf_add_local_field_group(array(
     'instruction_placement' => 'label',
     'hide_on_screen' => array(
         'the_content',
-        'editor',
+        'discussion',
+        'comments',
+        'revisions',
+        'format',
     ),
 ));
 
