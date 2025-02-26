@@ -68,6 +68,12 @@ add_action('after_setup_theme', function() {
     
     // Project card thumbnail size
     add_image_size('project-card', 544, 376, true); // Width, Height, Crop
+    
+    // Double height project card size
+    add_image_size('project-card-double', 571, 823, true); // Width, Height, Crop for double height cards
+    
+    // Thumbnail size for project cards
+    add_image_size('project-thumbnail', 150, 150, true); // Small thumbnail for admin or listing views
 });
 
 // Add menus to Timber context

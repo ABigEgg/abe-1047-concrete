@@ -18,7 +18,8 @@
               {% for project in projects|slice(0, 3) %}
                 {% include 'partials/project-card.twig' with { 
                   project: project,
-                  custom_classes: loop.first ? 'min-h-[376px] row-span-2' : 'min-h-[376px]'
+                  custom_classes: loop.first ? 'min-h-[376px] row-span-2' : 'min-h-[376px]',
+                  is_double_height: loop.first
                 } %}
               {% endfor %}
             </div>
