@@ -13,3 +13,4 @@ require_once __DIR__ . '/inc/post-types.inc.php';
 require_once __DIR__ . '/inc/contact-form.php';
 require_once __DIR__ . '/inc/acf.php';
 require_once __DIR__ . '/inc/helpers.php';
+require_once __DIR__ . '/inc/gutenberg.php';

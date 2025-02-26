@@ -16,7 +16,4 @@ $context['featured_projects'] = array_map(function($project) {
     return new Post($project);
 }, $selected_projects);
 
-// Add CTA options to context using helper function
-$context['global_cta'] = concrete_get_cta_options();
-
 Timber::render('index.twig', $context);

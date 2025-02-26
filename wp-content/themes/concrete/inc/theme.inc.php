@@ -10,19 +10,19 @@ if (!defined('ABSPATH')) exit;
  */
 function concrete_enqueue_assets() {
     $theme_version = wp_get_theme()->get('Version');
-    $asset_version = $theme_version . '.' . filemtime(get_template_directory() . '/dist/main.css');
+    $asset_version = $theme_version . '.' . filemtime(get_template_directory() . '/dist/css/main.css');
 
     // Enqueue styles
     wp_enqueue_style(
         'concrete-vendor',
-        get_template_directory_uri() . '/dist/vendor.css',
+        get_template_directory_uri() . '/dist/css/vendor.css',
         [],
         $asset_version
     );
 
     wp_enqueue_style(
         'concrete-styles',
-        get_template_directory_uri() . '/dist/main.css',
+        get_template_directory_uri() . '/dist/css/main.css',
         ['concrete-vendor'],
         $asset_version
     );
@@ -30,7 +30,7 @@ function concrete_enqueue_assets() {
     // Enqueue scripts
     wp_enqueue_script(
         'concrete-scripts',
-        get_template_directory_uri() . '/dist/main.js',
+        get_template_directory_uri() . '/dist/js/main.js',
         [],
         $asset_version,
         true
@@ -51,8 +51,10 @@ function concrete_theme_support() {
         'gallery',
         'caption',
         'style',
-        'script'
+        'script',
     ]);
+
+    add_theme_support('align-wide');
     
     // Register navigation menu locations
     register_nav_menus([

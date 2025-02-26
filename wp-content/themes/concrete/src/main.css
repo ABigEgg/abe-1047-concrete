@@ -21,53 +21,45 @@ html, body {
 }
 
 /* Project Content - Gutenberg Styling */
-.project-content {
-    @apply text-cc-mid-grey;
-}
-
-.project-content p {
-    @apply mb-6 text-sm max-w-[52rem];
-}
-
-.project-content h2 {
+.editor-styles-wrapper h1 {
     @apply mb-4 text-xl font-medium text-cc-dark-grey;
 }
 
-.project-content h3 {
-    @apply mb-3 text-lg font-medium text-cc-dark-grey;
+.concrete-content p, .editor-styles-wrapper p {
+    @apply text-cc-mid-grey;
 }
 
-.project-content h4 {
-    @apply mb-3 text-sm font-medium text-cc-dark-grey;
+.concrete-content p, .editor-styles-wrapper p {
+    @apply mb-6 text-sm max-w-[52rem];
 }
 
-.project-content ul {
+.concrete-content ul, .editor-styles-wrapper ul {
     @apply pl-6 mb-6 text-sm list-disc;
 }
 
-.project-content ol {
+.concrete-content ol, .editor-styles-wrapper ol {
     @apply pl-6 mb-6 text-sm list-decimal;
 }
 
-.project-content li {
+.concrete-content li, .editor-styles-wrapper li {
     @apply mb-2;
 }
 
-.project-content img:not(.mwl-img){
+.concrete-content img:not(.mwl-img), .editor-styles-wrapper img:not(.mwl-img){
     @apply my-6 w-full rounded-lg;
 }
 
-.project-content .mwl-img {
+.concrete-content .mwl-img, .editor-styles-wrapper .mwl-img {
     @apply  rounded-lg;
 }
 
 /* mgl gallery */
-.mgl-gallery-container {
+.mgl-root:nth-of-type(odd) .mgl-gallery-container {
     @apply relative py-20 my-16 bg-cc-light-grey;
 }
 
 /* extend the grey background to the left/right of the page, using a pseudo element */
-.mgl-gallery-container::before {
+.mgl-root:nth-of-type(odd) .mgl-gallery-container::before {
     content: '';
     position: absolute;
     left: -1000vw;
@@ -77,18 +69,178 @@ html, body {
     top: 0;
 }
 
-.project-content .wp-block-image figcaption {
+.concrete-content .wp-block-image figcaption, .editor-styles-wrapper .wp-block-image figcaption {
     @apply mt-2 text-xs italic text-cc-dark-grey;
 }
 
-.project-content .wp-block-quote {
+.concrete-content .wp-block-quote, .editor-styles-wrapper .wp-block-quote {
     @apply pl-4 mb-6 italic border-l-4 border-cc-dark-grey;
 }
 
-.project-content a {
+.concrete-content a, .editor-styles-wrapper a {
     @apply underline text-cc-dark-grey;
 }
 
-.project-content a:hover {
+.concrete-content a:hover, .editor-styles-wrapper a:hover {
     @apply opacity-80;
+}
+
+/* Concrete Gallery Block Styles */
+.concrete-gallery {
+    @apply relative py-20;
+}
+
+.concrete-gallery::before {
+    content: '';
+    position: absolute;
+    left: -1000vw;
+    height: 100%;
+    width: 5000vw;
+    background-color: #d9d9d9;
+    top: 0;
+}
+
+.concrete-gallery.bg-grey {
+    @apply bg-cc-light-grey;
+}
+
+/* Layout A - Large image on top, two side-by-side below */
+.concrete-gallery__layout-a .concrete-gallery__main {
+    @apply mb-6;
+}
+
+.concrete-gallery__layout-a .concrete-gallery__grid {
+    @apply flex gap-6;
+}
+
+.concrete-gallery__layout-a .concrete-gallery__item--secondary {
+    @apply flex-1 min-w-0; /* Prevent overflow */
+}
+
+/* Layout B - Large image left spanning height, two stacked on right */
+.concrete-gallery__layout-b .concrete-gallery__grid-featured {
+    @apply flex gap-6;
+}
+
+.concrete-gallery__layout-b .concrete-gallery__featured {
+    @apply flex-[3];
+}
+
+.concrete-gallery__layout-b .concrete-gallery__secondary {
+    @apply flex-[2] flex flex-col gap-6;
+}
+
+.concrete-gallery__layout-b .concrete-gallery__item--featured,
+.concrete-gallery__layout-b .concrete-gallery__item--secondary {
+    @apply h-full;
+}
+
+.concrete-gallery__layout-b .concrete-gallery__secondary .concrete-gallery__item {
+    @apply flex-1;
+}
+
+/* Layout C - Three large images stacked vertically */
+.concrete-gallery__layout-c .concrete-gallery__item--full {
+    @apply mb-6;
+}
+
+/* Common styles */
+.concrete-gallery__image-wrapper {
+    @apply overflow-hidden relative w-full h-full;
+}
+
+/* Lightbox interaction styling */
+.concrete-gallery__image-wrapper::after {
+    @apply flex absolute inset-0 justify-center items-center bg-opacity-0 opacity-0 transition-opacity duration-300 ease-in-out bg-cc-dark-grey;
+    content: '';
+}
+
+.concrete-gallery__image-wrapper:hover::after {
+    @apply bg-opacity-10 opacity-100;
+}
+
+.concrete-gallery__image-wrapper::before {
+    @apply absolute top-1/2 left-1/2 z-10 opacity-0 transition-opacity duration-300 ease-in-out transform -translate-x-1/2 -translate-y-1/2;
+    content: '+';
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+.concrete-gallery__image-wrapper:hover::before {
+    @apply opacity-80;
+}
+
+.concrete-gallery__item {
+    @apply flex flex-col;
+}
+
+.concrete-gallery__image {
+    @apply block object-cover relative w-full h-full rounded-lg;
+    margin: 0 !important;
+}
+
+.concrete-gallery__caption {
+    @apply mt-2 text-sm text-cc-mid-grey;
+}
+
+/* CSS for equal heights */
+.concrete-gallery__layout-a .concrete-gallery__item--secondary .concrete-gallery__image-wrapper,
+.concrete-gallery__layout-b .concrete-gallery__item--secondary .concrete-gallery__image-wrapper {
+    @apply relative h-0;
+    padding-bottom: 75%; /* Create aspect ratio for images */
+}
+
+.concrete-gallery__layout-a .concrete-gallery__item--secondary .concrete-gallery__image,
+.concrete-gallery__layout-b .concrete-gallery__item--secondary .concrete-gallery__image {
+    @apply absolute top-0 left-0 w-full h-full;
+}
+
+/* Editor styles - ensure these show up in admin context */
+.editor-styles-wrapper .concrete-gallery__image {
+    margin: 0 !important;
+}
+
+/* Override WordPress default spacing in editor and frontend */
+.wp-block-acf-concrete-gallery {
+    margin-top: 0 !important;
+    margin-bottom: 2rem !important;
+}
+
+/* LightGallery customizations */
+.lg-backdrop {
+    @apply bg-cc-dark-grey;
+}
+
+.lg-outer .lg-thumb-item.active, 
+.lg-outer .lg-thumb-item:hover {
+    @apply border-cc-dark-grey;
+}
+
+/* Fix for lightgallery navigation arrows */
+.lg-next:before,
+.lg-prev:after {
+    font-family: "lg" !important;
+    font-size: 20px;
+    opacity: 1;
+}
+
+.lg-next, 
+.lg-prev {
+    background-color: rgba(0, 0, 0, 0.45);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.lg-next:hover:not(.disabled),
+.lg-prev:hover:not(.disabled) {
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.65);
+}
+
+.editor-styles-wrapper{
+    overflow-x: hidden;
 }

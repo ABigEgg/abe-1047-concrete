@@ -3,6 +3,35 @@
   border-cc-mid-grey border-cc-dark-grey border-cc-light-grey border-cc-grey border-cc-white
   text-cc-mid-grey text-cc-dark-grey text-cc-light-grey text-cc-grey text-cc-white
   hover:bg-cc-mid-grey hover:bg-cc-dark-grey hover:bg-cc-light-grey hover:bg-cc-grey hover:bg-cc-white
+  bg-cc-mid-grey bg-cc-dark-grey bg-cc-light-grey bg-cc-grey bg-cc-white
 #}
-{% set color = color|default('cc-dark-grey') %}
-<a href="{{ url }}" class="inline-block py-2 border rounded-lg px-7 text-2md border-{{ color }} text-{{ color }} hover:bg-{{ color }} hover:text-cc-white">{{ text }}</a>
+{% set style = style|default('default') %}
+
+{% if style == 'dark' %}
+  {# Dark background, light text, inverts on hover #}
+  {% set border_color = 'border-cc-dark-grey' %}
+  {% set bg = 'bg-cc-dark-grey hover:bg-cc-white' %}
+  {% set fg = 'text-cc-white hover:text-cc-dark-grey' %}
+{% elseif style == 'primary' %}
+  {# Primary brand color #}
+  {% set border_color = 'border-cc-mid-grey' %}
+  {% set bg = 'hover:bg-cc-mid-grey' %}
+  {% set fg = 'text-cc-mid-grey hover:text-cc-white' %}
+{% elseif style == 'primary-dark' %}
+  {# Primary brand color, dark variant #}
+  {% set border_color = 'border-cc-mid-grey' %}
+  {% set bg = 'bg-cc-mid-grey hover:bg-cc-white' %}
+  {% set fg = 'text-cc-white hover:text-cc-mid-grey' %}
+{% elseif style == 'light' %}
+  {# Light background, dark text #}
+  {% set border_color = 'border-cc-white' %}
+  {% set bg = 'hover:bg-cc-white' %}
+  {% set fg = 'text-cc-white hover:text-cc-dark-grey' %}
+{% else %}
+  {# Default - Light background, dark border/text, inverts on hover #}
+  {% set border_color = 'border-cc-dark-grey' %}
+  {% set bg = 'hover:bg-cc-dark-grey' %}
+  {% set fg = 'text-cc-dark-grey hover:text-cc-white' %}
+{% endif %}
+
+<a href="{{ url }}" class="inline-block py-2 border rounded-lg px-7 text-2md {{ border_color }} {{ bg }} {{ fg }}">{{ text }}</a>

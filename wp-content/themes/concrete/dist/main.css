@@ -590,10 +590,6 @@ video {
   }
 }
 
-.visible {
-  visibility: visible;
-}
-
 .invisible {
   visibility: hidden;
 }
@@ -767,6 +763,10 @@ video {
   height: 1.5rem;
 }
 
+.h-8 {
+  height: 2rem;
+}
+
 .h-\[376px\] {
   height: 376px;
 }
@@ -837,10 +837,6 @@ video {
 
 .max-w-lg {
   max-width: 32rem;
-}
-
-.grow {
-  flex-grow: 1;
 }
 
 .scale-105 {
@@ -1061,6 +1057,14 @@ video {
   padding-bottom: 1rem;
 }
 
+.pb-16 {
+  padding-bottom: 4rem;
+}
+
+.pb-20 {
+  padding-bottom: 5rem;
+}
+
 .pb-8 {
   padding-bottom: 2rem;
 }
@@ -1075,14 +1079,6 @@ video {
 
 .pt-8 {
   padding-top: 2rem;
-}
-
-.pb-16 {
-  padding-bottom: 4rem;
-}
-
-.pb-20 {
-  padding-bottom: 5rem;
 }
 
 .text-center {
@@ -1236,19 +1232,19 @@ html, body {
 
 /* Project Content - Gutenberg Styling */
 
-.project-content {
+.concrete-content {
   --tw-text-opacity: 1;
   color: rgb(136 140 140 / var(--tw-text-opacity, 1));
 }
 
-.project-content p {
+.concrete-content p {
   margin-bottom: 1.5rem;
   max-width: 52rem;
   font-size: 1.50rem;
   line-height: 1.80rem;
 }
 
-.project-content h2 {
+.concrete-content h2 {
   margin-bottom: 1rem;
   font-size: 2.63rem;
   line-height: 3.13rem;
@@ -1257,7 +1253,7 @@ html, body {
   color: rgb(70 77 83 / var(--tw-text-opacity, 1));
 }
 
-.project-content h3 {
+.concrete-content h3 {
   margin-bottom: 0.75rem;
   font-size: 2.25rem;
   font-weight: 500;
@@ -1265,7 +1261,7 @@ html, body {
   color: rgb(70 77 83 / var(--tw-text-opacity, 1));
 }
 
-.project-content h4 {
+.concrete-content h4 {
   margin-bottom: 0.75rem;
   font-size: 1.50rem;
   line-height: 1.80rem;
@@ -1274,7 +1270,7 @@ html, body {
   color: rgb(70 77 83 / var(--tw-text-opacity, 1));
 }
 
-.project-content ul {
+.concrete-content ul {
   margin-bottom: 1.5rem;
   list-style-type: disc;
   padding-left: 1.5rem;
@@ -1282,7 +1278,7 @@ html, body {
   line-height: 1.80rem;
 }
 
-.project-content ol {
+.concrete-content ol {
   margin-bottom: 1.5rem;
   list-style-type: decimal;
   padding-left: 1.5rem;
@@ -1290,24 +1286,24 @@ html, body {
   line-height: 1.80rem;
 }
 
-.project-content li {
+.concrete-content li {
   margin-bottom: 0.5rem;
 }
 
-.project-content img:not(.mwl-img) {
+.concrete-content img:not(.mwl-img) {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   width: 100%;
   border-radius: 0.5rem;
 }
 
-.project-content .mwl-img {
+.concrete-content .mwl-img {
   border-radius: 0.5rem;
 }
 
 /* mgl gallery */
 
-.mgl-gallery-container {
+.mgl-root:nth-of-type(odd) .mgl-gallery-container {
   position: relative;
   margin-top: 4rem;
   margin-bottom: 4rem;
@@ -1319,7 +1315,7 @@ html, body {
 
 /* extend the grey background to the left/right of the page, using a pseudo element */
 
-.mgl-gallery-container::before {
+.mgl-root:nth-of-type(odd) .mgl-gallery-container::before {
   content: '';
   position: absolute;
   left: -1000vw;
@@ -1329,7 +1325,7 @@ html, body {
   top: 0;
 }
 
-.project-content .wp-block-image figcaption {
+.concrete-content .wp-block-image figcaption {
   margin-top: 0.5rem;
   font-size: 1.13rem;
   font-style: italic;
@@ -1337,7 +1333,7 @@ html, body {
   color: rgb(70 77 83 / var(--tw-text-opacity, 1));
 }
 
-.project-content .wp-block-quote {
+.concrete-content .wp-block-quote {
   margin-bottom: 1.5rem;
   border-left-width: 4px;
   --tw-border-opacity: 1;
@@ -1346,14 +1342,238 @@ html, body {
   font-style: italic;
 }
 
-.project-content a {
+.concrete-content a {
   --tw-text-opacity: 1;
   color: rgb(70 77 83 / var(--tw-text-opacity, 1));
   text-decoration-line: underline;
 }
 
-.project-content a:hover {
+.concrete-content a:hover {
   opacity: 0.8;
+}
+
+/* Concrete Gallery Block Styles */
+
+.concrete-gallery {
+  position: relative;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.concrete-gallery::before {
+  content: '';
+  position: absolute;
+  left: -1000vw;
+  height: 100%;
+  width: 5000vw;
+  background-color: #d9d9d9;
+  top: 0;
+}
+
+.concrete-gallery.bg-grey {
+  --tw-bg-opacity: 1;
+  background-color: rgb(217 217 217 / var(--tw-bg-opacity, 1));
+}
+
+/* Layout A - Large image on top, two side-by-side below */
+
+.concrete-gallery__layout-a .concrete-gallery__main {
+  margin-bottom: 1.5rem;
+}
+
+.concrete-gallery__layout-a .concrete-gallery__grid {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.concrete-gallery__layout-a .concrete-gallery__item--secondary {
+  min-width: 0px;
+  flex: 1 1 0%;
+  /* Prevent overflow */
+}
+
+/* Layout B - Large image left spanning height, two stacked on right */
+
+.concrete-gallery__layout-b .concrete-gallery__grid-featured {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.concrete-gallery__layout-b .concrete-gallery__featured {
+  flex: 3;
+}
+
+.concrete-gallery__layout-b .concrete-gallery__secondary {
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.concrete-gallery__layout-b .concrete-gallery__item--featured,
+.concrete-gallery__layout-b .concrete-gallery__item--secondary {
+  height: 100%;
+}
+
+.concrete-gallery__layout-b .concrete-gallery__secondary .concrete-gallery__item {
+  flex: 1 1 0%;
+}
+
+/* Layout C - Three large images stacked vertically */
+
+.concrete-gallery__layout-c .concrete-gallery__item--full {
+  margin-bottom: 1.5rem;
+}
+
+/* Common styles */
+
+.concrete-gallery__image-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Lightbox interaction styling */
+
+.concrete-gallery__image-wrapper::after {
+  position: absolute;
+  inset: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(70 77 83 / var(--tw-bg-opacity, 1));
+  --tw-bg-opacity: 0;
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  content: '';
+}
+
+.concrete-gallery__image-wrapper:hover::after {
+  --tw-bg-opacity: 0.1;
+  opacity: 1;
+}
+
+.concrete-gallery__image-wrapper::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  --tw-translate-x: -50%;
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  content: '+';
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.concrete-gallery__image-wrapper:hover::before {
+  opacity: 0.8;
+}
+
+.concrete-gallery__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.concrete-gallery__image {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: 0.5rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 0 !important;
+}
+
+.concrete-gallery__caption {
+  margin-top: 0.5rem;
+  font-size: 1.50rem;
+  line-height: 1.80rem;
+  --tw-text-opacity: 1;
+  color: rgb(136 140 140 / var(--tw-text-opacity, 1));
+}
+
+/* CSS for equal heights */
+
+.concrete-gallery__layout-a .concrete-gallery__item--secondary .concrete-gallery__image-wrapper,
+.concrete-gallery__layout-b .concrete-gallery__item--secondary .concrete-gallery__image-wrapper {
+  position: relative;
+  height: 0px;
+  padding-bottom: 75%;
+  /* Create aspect ratio for images */
+}
+
+.concrete-gallery__layout-a .concrete-gallery__item--secondary .concrete-gallery__image,
+.concrete-gallery__layout-b .concrete-gallery__item--secondary .concrete-gallery__image {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+/* Editor styles - ensure these show up in admin context */
+
+.editor-styles-wrapper .concrete-gallery__image {
+  margin: 0 !important;
+}
+
+/* Override WordPress default spacing in editor and frontend */
+
+.wp-block-acf-concrete-gallery {
+  margin-top: 0 !important;
+  margin-bottom: 2rem !important;
+}
+
+/* LightGallery customizations */
+
+.lg-backdrop {
+  --tw-bg-opacity: 1;
+  background-color: rgb(70 77 83 / var(--tw-bg-opacity, 1));
+}
+
+.lg-outer .lg-thumb-item.active, 
+.lg-outer .lg-thumb-item:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(70 77 83 / var(--tw-border-opacity, 1));
+}
+
+/* Fix for lightgallery navigation arrows */
+
+.lg-next:before,
+.lg-prev:after {
+  font-family: "lg" !important;
+  font-size: 20px;
+  opacity: 1;
+}
+
+.lg-next, 
+.lg-prev {
+  background-color: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.lg-next:hover:not(.disabled),
+.lg-prev:hover:not(.disabled) {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.65);
+}
+
+.editor-styles-wrapper{
+  overflow-x: hidden;
 }
 
 .hover\:scale-105:hover {
@@ -1391,6 +1611,16 @@ html, body {
   padding-left: 1rem;
 }
 
+.hover\:text-cc-dark-grey:hover {
+  --tw-text-opacity: 1;
+  color: rgb(70 77 83 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-cc-mid-grey:hover {
+  --tw-text-opacity: 1;
+  color: rgb(136 140 140 / var(--tw-text-opacity, 1));
+}
+
 .hover\:text-cc-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
@@ -1398,10 +1628,6 @@ html, body {
 
 .hover\:opacity-50:hover {
   opacity: 0.5;
-}
-
-.hover\:opacity-75:hover {
-  opacity: 0.75;
 }
 
 .hover\:opacity-80:hover {

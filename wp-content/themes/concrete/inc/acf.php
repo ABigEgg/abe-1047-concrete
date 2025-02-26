@@ -35,4 +35,7 @@ require_once get_template_directory() . '/inc/acf/project.php';
 require_once get_template_directory() . '/inc/acf/about-page.php';
 require_once get_template_directory() . '/inc/acf/homepage.php';
 require_once get_template_directory() . '/inc/acf/options.php';
-require_once get_template_directory() . '/inc/acf/services/edit-notice.php'; 
+require_once get_template_directory() . '/inc/acf/services/edit-notice.php';
+require_once get_template_directory() . '/inc/acf/services/service-post-type.php';
+require_once get_template_directory() . '/inc/acf/services/services-page.php';
+require_once get_template_directory() . '/inc/acf/blocks.php'; 
