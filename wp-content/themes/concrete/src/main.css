@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body {
+    overflow-x: hidden;
+}
+
 * {
     font-family: "Effra Trial", sans-serif;
 }
@@ -22,7 +26,7 @@
 }
 
 .project-content p {
-    @apply mb-6 text-sm;
+    @apply mb-6 text-sm max-w-[52rem];
 }
 
 .project-content h2 {
@@ -49,8 +53,28 @@
     @apply mb-2;
 }
 
-.project-content img {
+.project-content img:not(.mwl-img){
     @apply my-6 w-full rounded-lg;
+}
+
+.project-content .mwl-img {
+    @apply  rounded-lg;
+}
+
+/* mgl gallery */
+.mgl-gallery-container {
+    @apply relative py-20 my-16 bg-cc-light-grey;
+}
+
+/* extend the grey background to the left/right of the page, using a pseudo element */
+.mgl-gallery-container::before {
+    content: '';
+    position: absolute;
+    left: -1000vw;
+    height: 100%;
+    width: 5000vw;
+    background-color: #d9d9d9;
+    top: 0;
 }
 
 .project-content .wp-block-image figcaption {

@@ -759,6 +759,10 @@ video {
   height: 0px;
 }
 
+.h-16 {
+  height: 4rem;
+}
+
 .h-6 {
   height: 1.5rem;
 }
@@ -783,10 +787,6 @@ video {
   height: 100vh;
 }
 
-.h-16 {
-  height: 4rem;
-}
-
 .min-h-\[376px\] {
   min-height: 376px;
 }
@@ -799,12 +799,16 @@ video {
   min-height: 784px;
 }
 
+.min-h-\[823px\] {
+  min-height: 823px;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
 
-.min-h-\[823px\] {
-  min-height: 823px;
+.w-16 {
+  width: 4rem;
 }
 
 .w-8 {
@@ -817,10 +821,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-16 {
-  width: 4rem;
 }
 
 .max-w-64 {
@@ -921,12 +921,12 @@ video {
   border-radius: 0.25rem;
 }
 
-.rounded-lg {
-  border-radius: 0.5rem;
-}
-
 .rounded-full {
   border-radius: 9999px;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
 }
 
 .border {
@@ -1183,11 +1183,6 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.drop-shadow-lg {
-  --tw-drop-shadow: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
 .drop-shadow {
   --tw-drop-shadow: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -1213,6 +1208,10 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 * {
   font-family: "Effra Trial", sans-serif;
 }
@@ -1236,6 +1235,7 @@ video {
 
 .project-content p {
   margin-bottom: 1.5rem;
+  max-width: 52rem;
   font-size: 1.50rem;
   line-height: 1.80rem;
 }
@@ -1286,11 +1286,39 @@ video {
   margin-bottom: 0.5rem;
 }
 
-.project-content img {
+.project-content img:not(.mwl-img) {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   width: 100%;
   border-radius: 0.5rem;
+}
+
+.project-content .mwl-img {
+  border-radius: 0.5rem;
+}
+
+/* mgl gallery */
+
+.mgl-gallery-container {
+  position: relative;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(217 217 217 / var(--tw-bg-opacity, 1));
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+/* extend the grey background to the left/right of the page, using a pseudo element */
+
+.mgl-gallery-container::before {
+  content: '';
+  position: absolute;
+  left: -1000vw;
+  height: 100%;
+  width: 5000vw;
+  background-color: #d9d9d9;
+  top: 0;
 }
 
 .project-content .wp-block-image figcaption {

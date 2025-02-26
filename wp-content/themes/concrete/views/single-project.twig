@@ -38,12 +38,8 @@
     <div class="bg-cc-white">
       <div class="py-16">
         <div class="container mx-auto max-w-container">
-          <div class="grid grid-cols-12 gap-8">
-            <div class="col-span-9">
-              <div class="project-content">
-                {{ post.content }}
-              </div>  
-            </div>
+          <div class="project-content">
+            {{ post.content }}
           </div>
         </div>
       </div>
@@ -54,19 +50,17 @@
   <div class="bg-cc-light-grey">
     <div class="py-20">
       <div class="container mx-auto max-w-container">
-        <div class="grid grid-cols-12 gap-8">
-          <div class="col-span-9">
-            <div class="mt-0">
-              {# TODO - the font below is the wrong weight, needs licensed from Adobe #}
-              <h3 class="text-lg font-medium fnt-bld text-cc-dark-grey">Have an idea of a project you'd like to work on?</h3>
-              <p class="mb-8 text-md text-cc-dark-grey">For more information on this project, please contact us.</p>
-              
-              {% include 'partials/btn.twig' with { 
-                text: 'Get in touch',
-                url: '/contact'
-              } %}
-            </div>  
-          </div>
+        <div>
+          <div class="mt-0">
+            {# TODO - the font below is the wrong weight, needs licensed from Adobe #}
+            <h3 class="text-lg font-medium fnt-bld text-cc-dark-grey">Have an idea of a project you'd like to work on?</h3>
+            <p class="mb-8 text-md text-cc-dark-grey">For more information on this project, please contact us.</p>
+            
+            {% include 'partials/btn.twig' with { 
+              text: 'Get in touch',
+              url: '/contact'
+            } %}
+          </div>  
         </div>
       </div>
     </div>
