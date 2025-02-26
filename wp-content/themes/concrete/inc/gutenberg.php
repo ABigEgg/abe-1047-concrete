@@ -23,6 +23,7 @@ function concrete_allowed_block_types($allowed_blocks, $editor_context) {
             'core/image',         // Images
             'core/block',         // Reusable blocks
             'core/html',          // Custom HTML (sometimes needed for links)
+            'acf/concrete-gallery' // Concrete Gallery
         );
     }
     

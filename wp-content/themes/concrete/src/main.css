@@ -53,6 +53,28 @@ html, body {
     @apply  rounded-lg;
 }
 
+/* we had to remove the container to allow for full width content
+apply max-w-container and mx-auto to all content blocks
+*/
+.concrete-content > p, .editor-styles-wrapper > p, 
+.concrete-content > ul, .editor-styles-wrapper > ul,
+.concrete-content > .concrete-gallery, .editor-styles-wrapper > .concrete-gallery,
+.concrete-content > .wp-block-image:not(.alignfull), .editor-styles-wrapper > .wp-block-image:not(.alignfull) {
+    @apply mx-auto max-w-container;
+}
+
+.concrete-content > .wp-block-image.alignfull, .editor-styles-wrapper > .wp-block-image.alignfull {
+    @apply mx-auto max-w-full;
+}
+
+.concrete-content > .wp-block-image.alignfull img, .editor-styles-wrapper > .wp-block-image.alignfull img {
+    @apply w-full rounded-none;
+}
+
+.concrete-content > ol, .editor-styles-wrapper > ol {
+    @apply mx-auto max-w-container;
+}
+
 /* mgl gallery */
 .mgl-root:nth-of-type(odd) .mgl-gallery-container {
     @apply relative py-20 my-16 bg-cc-light-grey;
