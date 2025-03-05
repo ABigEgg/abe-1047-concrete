@@ -10,6 +10,13 @@ module.exports = {
     "views/*.twig" 
   ],
   theme: {
+    screens: {
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
     colors: {
       "cc-mid-grey": "#888c8c",
       "cc-dark-grey": "#464d53",
@@ -29,6 +36,11 @@ module.exports = {
     },
     container: {
       "center": true,
+      padding: {
+        DEFAULT: '1rem',
+        sm: '1.5rem',
+        lg: '2rem'
+      },
     },
     extend: {
       spacing: {

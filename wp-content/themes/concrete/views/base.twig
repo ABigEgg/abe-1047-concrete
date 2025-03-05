@@ -21,29 +21,29 @@
 
 {# Footer #}
 <footer>
-    <div class="py-16 bg-cc-dark-grey">
+    <div class="py-8 md:py-12 lg:py-16 bg-cc-dark-grey">
         <div class="container mx-auto max-w-container">
-            <div class="mb-16 max-w-64">
+            <div class="mb-8 md:mb-16 max-w-64">
                 <img src="{{ site.theme.link }}/svg/concrete-logo.svg">
             </div>
-            <div class="grid grid-cols-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-0">
                 <div>
-                    <h3 class="text-3xl leading-[0.8] text-cc-white">Say hello</h3>
+                    <h3 class="text-xl md:text-2xl lg:text-3xl leading-[0.8] text-cc-white">Say hello</h3>
                 </div>
-                <div class="text-2md">
+                <div class="text-md md:text-2md">
                     <h4 class="text-cc-white">Contact</h4>
                     <p class="text-cc-mid-grey">hello@concretecreative.co.uk</p>
                     <p class="text-cc-mid-grey">0141 724 0089</p>
 
-                    <h4 class="mt-8 text-cc-white">Follow</h4>
-                    <div class="text-cc-mid-grey">
+                    <h4 class="mt-6 md:mt-8 text-cc-white">Follow</h4>
+                    <div class="text-cc-mid-grey flex gap-4">
                         <a href="#">Twitter</a>
                         <a href="#">Instagram</a>
                         <a href="#">Linkedin</a>
                     </div>
                 </div>
             </div>
-            <div class="mt-16 text-xs text-cc-white">
+            <div class="mt-8 md:mt-16 text-xs text-cc-white">
                 <p><a href="#">Terms &amp; Privacy Policy</a> &copy; {{ function('date', 'Y') }} Concrete Creative</p>
             </div>
         </div>

@@ -10,6 +10,40 @@ html, body {
     font-family: "Effra Trial", sans-serif;
 }
 
+/* Responsive base styles */
+@layer base {
+    h1, .h1 {
+        @apply text-xl md:text-2xl lg:text-3xl;
+    }
+    
+    h2, .h2 {
+        @apply text-lg md:text-xl lg:text-2xl;
+    }
+    
+    h3, .h3 {
+        @apply text-md md:text-lg lg:text-xl;
+    }
+    
+    p {
+        @apply text-xs md:text-sm;
+    }
+}
+
+/* Responsive spacing utilities */
+@layer utilities {
+    .py-responsive {
+        @apply py-8 md:py-12 lg:py-16;
+    }
+    
+    .my-responsive {
+        @apply my-8 md:my-12 lg:my-16;
+    }
+    
+    .px-responsive {
+        @apply px-4 md:px-6 lg:px-8;
+    }
+}
+
 .glide__arrow {
     border: none !important;
     box-shadow: none !important;
@@ -22,7 +56,7 @@ html, body {
 
 /* Project Content - Gutenberg Styling */
 .editor-styles-wrapper h1 {
-    @apply mb-4 text-xl font-medium text-cc-dark-grey;
+    @apply mb-4 text-lg font-medium md:text-xl text-cc-dark-grey;
 }
 
 .editor-styles-wrapper >*:first-child, 
@@ -36,19 +70,19 @@ html, body {
 }
 
 .concrete-content p, .editor-styles-wrapper p {
-    @apply text-sm max-w-[52rem];
+    @apply text-xs md:text-sm max-w-[52rem];
 }
 
 .concrete-content p + p, .editor-styles-wrapper p + p {
-    @apply mb-8;
+    @apply mb-4 md:mb-8;
 }
 
 .concrete-content ul, .editor-styles-wrapper ul {
-    @apply pl-6 mb-6 text-sm list-disc;
+    @apply pl-4 mb-4 text-xs list-disc md:pl-6 md:mb-6 md:text-sm;
 }
 
 .concrete-content ol, .editor-styles-wrapper ol {
-    @apply pl-6 mb-6 text-sm list-decimal;
+    @apply pl-4 mb-4 text-xs list-decimal md:pl-6 md:mb-6 md:text-sm;
 }
 
 .concrete-content li, .editor-styles-wrapper li {
@@ -56,11 +90,11 @@ html, body {
 }
 
 .concrete-content img:not(.mwl-img), .editor-styles-wrapper img:not(.mwl-img){
-    @apply my-20 w-full rounded-lg;
+    @apply my-10 w-full rounded-lg md:my-20;
 }
 
 .concrete-content .mwl-img, .editor-styles-wrapper .mwl-img {
-    @apply  rounded-lg;
+    @apply rounded-lg;
 }
 
 /* we had to remove the container to allow for full width content

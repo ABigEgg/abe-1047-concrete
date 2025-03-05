@@ -1,35 +1,35 @@
 {# Mobile Navigation Menu #}
 <div class="overflow-hidden absolute top-0 left-0 z-30 w-full bg-cc-dark-grey" x-bind:class="hamburger ? 'h-full' : 'h-0'">
-     <header class="container mx-auto mt-8 w-full max-w-container">
+     <header class="container mx-auto mt-4 md:mt-8 w-full max-w-container px-4 md:px-0">
         <div class="flex justify-between items-center"> 
-            <div class="w-[69px] h-[80px]">
+            <div class="w-[60px] h-[70px] md:w-[69px] md:h-[80px]">
                 <a href="{{ site.url }}" class="block transition-opacity hover:opacity-50">
                     <img src="{{ site.theme.link }}/svg/concrete.svg" alt="Concrete Creative logo">
                 </a>
             </div>
-            <div class="w-8 h-6">
-                <a href="#" x-on:click="hamburger = !hamburger" class="relative -top-1 transition-opacity hover:opacity-50">
+            <div class="w-10 h-10 md:w-8 md:h-6 flex items-center justify-center">
+                <a href="#" x-on:click="hamburger = !hamburger" class="block p-2 transition-opacity hover:opacity-50">
                     {% include 'svg/cross.svg' %} 
                 </a>
             </div>  
         </div>
 
-        <div class="mt-20">
-            <ul class="">
+        <div class="mt-8 md:mt-20">
+            <ul class="space-y-4 md:space-y-6">
                 {% if mobile_menu %}
                     {% for item in mobile_menu.items %}
-                        <li><a href="{{ item.link }}" class="pl-0 text-3xl leading-tight transition-all duration-200 ease-in-out text-cc-white hover:opacity-50 hover:pl-4" {{ item.target ? 'target="' ~ item.target ~ '"' }}>{{ item.title }}</a></li>
+                        <li><a href="{{ item.link }}" class="pl-0 text-xl md:text-2xl lg:text-3xl leading-tight transition-all duration-200 ease-in-out text-cc-white hover:opacity-50 hover:pl-4 block py-2" {{ item.target ? 'target="' ~ item.target ~ '"' }}>{{ item.title }}</a></li>
                     {% endfor %}
                 {% endif %}
             </ul>
         </div>
 
-        <div class="mt-20">
-            <div>
-                <a href="#" class="text-xl transition-opacity text-cc-white hover:opacity-50">hello@concretecreative.co.uk</a>
+        <div class="mt-12 md:mt-20">
+            <div class="mb-2">
+                <a href="#" class="text-lg md:text-xl transition-opacity text-cc-white hover:opacity-50 block py-2">hello@concretecreative.co.uk</a>
             </div>
             <div>
-                <a href="#" class="text-xl transition-opacity text-cc-white hover:opacity-50">0141 724 0089</a>
+                <a href="#" class="text-lg md:text-xl transition-opacity text-cc-white hover:opacity-50 block py-2">0141 724 0089</a>
             </div>
         </div>
     </header>
@@ -37,9 +37,9 @@
 
 {# Top Navigation #}
 <div class="absolute z-10 w-full">
-    <header class="container mx-auto mt-8 w-full max-w-container">
+    <header class="container mx-auto mt-4 md:mt-8 w-full max-w-container px-4 md:px-0">
         <div class="flex justify-between items-center">
-            <div class="w-[69px] h-[80px]">
+            <div class="w-[60px] h-[70px] md:w-[69px] md:h-[80px]">
                 <a href="{{ site.url }}" class="block transition-opacity hover:opacity-50">
                     {% if dark_variant %}
                         <img src="{{ site.theme.link }}/svg/concrete-dark.svg" alt="Concrete Creative logo">
@@ -48,8 +48,8 @@
                     {% endif %}
                 </a>
             </div>
-            <div class="w-8 h-6">
-                <a href="#" x-on:click="hamburger = !hamburger" class="transition-opacity hover:opacity-50">
+            <div class="w-10 h-10 md:w-8 md:h-6 flex items-center justify-center">
+                <a href="#" x-on:click="hamburger = !hamburger" class="block p-2 transition-opacity hover:opacity-50">
                     {% if dark_variant %}
                         <img src="{{ site.theme.link }}/svg/hamburger-dark.svg" alt="Menu icon">
                     {% else %}
