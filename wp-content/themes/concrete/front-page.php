@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 use Timber\Timber;
 use Timber\Post;
@@ -15,7 +15,7 @@ $context['intro'] = [
 
 // Get selected projects and convert to Timber posts
 $selected_projects = get_field('featured_projects') ?: [];
-$context['featured_projects'] = array_map(function($project) {
+$context['featured_projects'] = array_map(function ($project) {
     return new Post($project);
 }, $selected_projects);
 

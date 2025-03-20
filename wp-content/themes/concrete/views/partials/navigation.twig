@@ -9,7 +9,7 @@
             </div>
             <div class="w-10 h-10 md:w-8 md:h-6 flex items-center justify-center">
                 <a href="#" x-on:click="hamburger = !hamburger" class="block p-2 transition-opacity hover:opacity-50">
-                    {% include 'svg/cross.svg' %} 
+                    {% include 'svg/cross.svg' with { class: 'w-8' } %} 
                 </a>
             </div>  
         </div>
@@ -49,11 +49,11 @@
                 </a>
             </div>
             <div class="w-10 h-10 md:w-8 md:h-6 flex items-center justify-center">
-                <a href="#" x-on:click="hamburger = !hamburger" class="block p-2 transition-opacity hover:opacity-50">
+                <a href="#" x-on:click="hamburger = !hamburger" class="block p-1 transition-opacity hover:opacity-50">
                     {% if dark_variant %}
-                        <img src="{{ site.theme.link }}/svg/hamburger-dark.svg" alt="Menu icon">
+                        {% include 'svg/hamburger-dark.svg' with { class: 'w-8' } %}
                     {% else %}
-                        <img src="{{ site.theme.link }}/svg/hamburger.svg" alt="Menu icon">
+                        {% include 'svg/hamburger.svg' with { class: 'w-8' } %}
                     {% endif %}
                 </a>
             </div>  
