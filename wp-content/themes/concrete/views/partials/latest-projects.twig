@@ -3,10 +3,10 @@
 {% set projects = projects|default([]) %}
 
 <div>
-  <div class="py-8 md:py-12 lg:py-16 {{ background }}">
-    <div class="container mx-auto max-w-container px-4 md:px-0">
-      <div>
-        <h3 class="mb-4 md:mb-6 text-lg md:text-xl text-cc-dark-grey">{{ title }}</h3>
+  <div class="py-8 md:py-16 lg:py-16 {{ background }}">
+    <div class="container mx-auto max-w-container md:px-0">
+      <div class="mb-2 md:mb-8">
+        <h3 class="text-sm md:text-xl text-cc-dark-grey">{{ title }}</h3>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 auto-rows-max gap-6 md:gap-8">
         {% for project in projects %}
@@ -15,8 +15,8 @@
       </div>
     </div>
   </div>
-  <div class="py-8 md:py-12 lg:py-16 bg-cc-white">
-    <div class="container flex justify-center mx-auto max-w-container px-4 md:px-0">
+  <div class="py-16 md:py-16 lg:py-16 bg-cc-white">
+    <div class="container flex justify-center mx-auto max-w-container md:px-0">
       {% include 'partials/btn.twig' with {
         text: 'View all projects',
         url: '/our-work',
