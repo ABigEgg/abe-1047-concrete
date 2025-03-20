@@ -12,7 +12,7 @@
 {% set background_class = background == 'grey' ? 'bg-cc-light-grey' : 'bg-cc-white' %}
 
 <div id="{{ block_id }}" class="{{ class_name }} {{ background_class }} {{ layout }}">
-    <div class="container">
+    <div class="container md:px-0">
         {% if layout == 'layout_a' %}
             {# Layout A: Large image on top, two images side-by-side below with equal heights #}
             <div class="concrete-gallery__layout-a">
