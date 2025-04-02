@@ -31,7 +31,7 @@
       {% if project.terms('project_tags') %}
         <div class="flex relative z-10 flex-wrap gap-2 mt-4">
           {% for tag in project.terms('project_tags') %}
-            <span class="inline-block py-[4px] px-1 md:p-1 md:px-2 text-tag leading-none md:leading-normal md:text-sm bg-opacity-30 rounded text-cc-white bg-cc-white">{{ tag.name }}</span>
+            <span class="inline-block py-[4px] px-1 md:p-1 md:px-2 text-tag leading-none md:leading-normal md:text-xs bg-opacity-30 rounded text-cc-white bg-cc-white">{{ tag.name }}</span>
           {% endfor %}
         </div>
       {% endif %}

@@ -88,9 +88,6 @@ function concrete_add_to_context($context)
     // Add main navigation to context
     $context['main_menu'] = new Timber\Menu('main-navigation');
 
-    // Add mobile navigation to context
-    $context['mobile_menu'] = new Timber\Menu('mobile-navigation');
-
     // Add ACF options to context
     $context['options'] = get_fields('option');
 

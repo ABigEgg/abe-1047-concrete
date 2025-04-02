@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" x-data="{ hamburger: false }"  x-bind:class="hamburger ? 'overflow-hidden' : ''">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
     {{ function('wp_head')  }}
 
 </head>
-<body {{ function('body_class', 'antialiased') }} x-data="{ hamburger: false }" x-bind:class="hamburger ? 'overflow-hidden' : ''">
+<body {{ function('body_class', 'antialiased') }} >
 
 {# Include navigation partial #}
 {% include 'partials/navigation.twig' with { dark_variant: dark_variant|default(false) } %}

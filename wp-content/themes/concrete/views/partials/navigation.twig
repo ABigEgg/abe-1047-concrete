@@ -14,11 +14,11 @@
             </div>  
         </div>
 
-        <div class="mt-8 md:mt-20">
-            <ul class="space-y-0 md:space-y-6">
-                {% if mobile_menu %}
-                    {% for item in mobile_menu.items %}
-                        <li><a href="{{ item.link }}" class="pl-0 text-xl md:text-2xl lg:text-3xl leading-tight transition-all duration-200 ease-in-out text-cc-white hover:opacity-50 hover:pl-4 block py-0 md:py-2" {{ item.target ? 'target="' ~ item.target ~ '"' }}>{{ item.title }}</a></li>
+        <div class="mt-8 md:mt-16">
+            <ul class="space-y-0 md:space-y-2">
+                {% if main_menu %}
+                    {% for item in main_menu.items %}
+                        <li class=""><a href="{{ item.link }}" class="pl-0 text-xl md:text-2xl lg:text-3xl leading-tight transition-all duration-200 ease-in-out text-cc-white hover:opacity-50 hover:pl-4 block py-0 md:py-2" {{ item.target ? 'target="' ~ item.target ~ '"' }}>{{ item.title }}</a></li>
                     {% endfor %}
                 {% endif %}
             </ul>
