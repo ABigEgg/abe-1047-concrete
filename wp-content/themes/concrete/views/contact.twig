@@ -10,12 +10,12 @@
   {# Contact Form Section #}
   <div class="py-16 md:py-24">
     <div class="container mx-auto max-w-container px-4">
-      <div class="max-w-3xl">
+      <div class="">
         <h3 class="text-3xl text-cc-dark-grey mb-6">Got a bold idea?</h3>
-        <p class="text-xl text-cc-mid-grey mb-8">If you've got a project you'd like to discuss please complete our new project form below. Alternatively you can get in touch via <a href="mailto:{{ options.contact_email }}" class="underline hover:text-cc-dark-grey transition-colors">email</a> or just give us a <a href="tel:{{ options.contact_phone|replace({' ': ''}) }}" class="underline hover:text-cc-dark-grey transition-colors">call</a>.</p>
+        <p class="text-xl text-cc-mid-grey mb-8">If you've got a project you'd like to discuss please complete our new project form below. Alternatively you can get in touch via <a href="mailto:{{ options.contact_email }}" class="underline hover:text-cc-dark-grey text-cc-dark-grey transition-colors">email</a> or just give us a <a href="tel:{{ options.contact_phone|replace({' ': ''}) }}" class="underline hover:text-cc-dark-grey text-cc-dark-grey transition-colors">call</a>.</p>
       </div>
 
-      <form id="contact-form" method="POST" action="{{ fn('admin_url', 'admin-ajax.php') }}" class="max-w-4xl">
+      <form id="contact-form" method="POST" action="{{ fn('admin_url', 'admin-ajax.php') }}" class="">
         <input type="hidden" name="action" value="submit_contact_form" />
         {{ fn('wp_nonce_field', 'contact_form_nonce') }}
 
@@ -40,13 +40,13 @@
             <input type="tel" id="phone" name="phone" class="w-full p-4 bg-cc-light-grey border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-cc-dark-grey transition-colors" />
           </div>
 
-          <div class="col-span-2">
+          <div class="col-span-1 md:col-span-2">
             <label class="block mb-3 text-cc-dark-grey text-md">Services Required</label>
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-3 w-full">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3 w-full">
               {% for service in ['Branding', 'Design', 'Digital', 'Motion', 'Display'] %}
                 <label class="relative">
-                  <input type="radio" name="services" value="{{ service|lower }}" class="peer absolute opacity-0">
-                  <span class="block w-full px-6 py-3 text-md text-cc-dark-grey bg-cc-light-grey text-center border border-cc-light-grey rounded-md cursor-pointer peer-checked:border-cc-dark-grey peer-checked:bg-cc-dark-grey peer-checked:text-cc-white transition-colors">
+                  <input type="checkbox" name="services[]" value="{{ service|lower }}" class="peer absolute opacity-0" tabindex="0">
+                  <span class="block w-full px-6 py-3 text-md text-cc-dark-grey bg-cc-light-grey text-center border border-cc-light-grey rounded-md cursor-pointer peer-checked:border-cc-dark-grey peer-checked:bg-cc-dark-grey peer-checked:text-cc-white peer-focus:ring-2 peer-focus:ring-cc-dark-grey peer-focus:ring-offset-2 transition-all">
                     {{ service }}
                   </span>
                 </label>
@@ -57,7 +57,7 @@
           <div class="col-span-1">
             <label for="budget" class="block mb-3 text-cc-dark-grey text-md">Budget</label>
             <div class="relative">
-              <select id="budget" name="budget" class="w-full p-4 bg-cc-light-grey border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-cc-dark-grey appearance-none pr-10 transition-colors text-md text-cc-dark-grey">
+              <select id="budget" name="budget" class="w-full p-4 bg-cc-light-grey border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-cc-dark-grey focus:ring-offset-2 appearance-none pr-10 transition-colors text-md text-cc-dark-grey" tabindex="0">
                 <option value="">Select Budget</option>
                 <option value="1000">Less than £1,000</option>
                 <option value="1000-5000">£1,000 - £5,000</option>
@@ -75,7 +75,7 @@
           <div class="col-span-1">
             <label for="timescale" class="block mb-3 text-cc-dark-grey text-md">Timescale</label>
             <div class="relative">
-              <select id="timescale" name="timescale" class="w-full p-4 bg-cc-light-grey border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-cc-dark-grey appearance-none pr-10 transition-colors text-md text-cc-dark-grey">
+              <select id="timescale" name="timescale" class="w-full p-4 bg-cc-light-grey border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-cc-dark-grey focus:ring-offset-2 appearance-none pr-10 transition-colors text-md text-cc-dark-grey" tabindex="0">
                 <option value="">Select Timescale</option>
                 <option value="1-2weeks">1-2 weeks</option>
                 <option value="2-4weeks">2-4 weeks</option>
@@ -91,13 +91,13 @@
             </div>
           </div>
 
-          <div class="col-span-2">
+          <div class="col-span-1 md:col-span-2">
             <label for="message" class="block mb-3 text-cc-dark-grey text-md">Project Details</label>
-            <textarea id="message" name="message" rows="6" required class="w-full p-4 bg-cc-light-grey border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-cc-dark-grey transition-colors"></textarea>
+            <textarea id="message" name="message" rows="6" required class="w-full p-4 bg-cc-light-grey border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-cc-dark-grey transition-colors text-md text-cc-dark-grey"></textarea>
           </div>
 
-          <div class="col-span-2 mt-4">
-            <button type="submit" class="px-8 py-3 bg-cc-white text-cc-dark-grey hover:bg-black hover:text-cc-white transition-colors rounded-md border border-cc-dark-grey text-2md">Submit</button>
+          <div class="col-span-1 md:col-span-2 mt-4">
+            <button type="submit" class="px-8 py-3 bg-cc-white text-cc-dark-grey hover:bg-cc-dark-grey hover:text-cc-white transition-colors rounded-md border border-cc-dark-grey text-2md">Submit</button>
           </div>
         </div>
 
