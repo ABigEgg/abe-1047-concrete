@@ -21,32 +21,32 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
           <div class="col-span-1">
-            <label for="name" class="block mb-3 text-cc-mid-grey text-lg">Name</label>
+            <label for="name" class="block mb-3 text-cc-dark-grey text-md">Name</label>
             <input type="text" id="name" name="name" required class="w-full p-4 bg-cc-light-grey border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-cc-dark-grey transition-colors" />
           </div>
 
           <div class="col-span-1">
-            <label for="company" class="block mb-3 text-cc-mid-grey text-lg">Company</label>
+            <label for="company" class="block mb-3 text-cc-dark-grey text-md">Company</label>
             <input type="text" id="company" name="company" required class="w-full p-4 bg-cc-light-grey border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-cc-dark-grey transition-colors" />
           </div>
 
           <div class="col-span-1">
-            <label for="email" class="block mb-3 text-cc-mid-grey text-lg">Email</label>
+            <label for="email" class="block mb-3 text-cc-dark-grey text-md">Email</label>
             <input type="email" id="email" name="email" required class="w-full p-4 bg-cc-light-grey border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-cc-dark-grey transition-colors" />
           </div>
 
           <div class="col-span-1">
-            <label for="phone" class="block mb-3 text-cc-mid-grey text-lg">Telephone</label>
+            <label for="phone" class="block mb-3 text-cc-dark-grey text-md">Telephone</label>
             <input type="tel" id="phone" name="phone" class="w-full p-4 bg-cc-light-grey border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-cc-dark-grey transition-colors" />
           </div>
 
           <div class="col-span-2">
-            <label class="block mb-3 text-cc-mid-grey text-lg">Services Required</label>
+            <label class="block mb-3 text-cc-dark-grey text-md">Services Required</label>
             <div class="grid grid-cols-2 md:grid-cols-5 gap-3 w-full">
               {% for service in ['Branding', 'Design', 'Digital', 'Motion', 'Display'] %}
                 <label class="relative">
                   <input type="radio" name="services" value="{{ service|lower }}" class="peer absolute opacity-0">
-                  <span class="block w-full px-6 py-3 text-center border border-cc-light-grey rounded-md cursor-pointer peer-checked:border-cc-dark-grey peer-checked:bg-cc-dark-grey peer-checked:text-white transition-colors">
+                  <span class="block w-full px-6 py-3 text-md text-cc-dark-grey bg-cc-light-grey text-center border border-cc-light-grey rounded-md cursor-pointer peer-checked:border-cc-dark-grey peer-checked:bg-cc-dark-grey peer-checked:text-cc-white transition-colors">
                     {{ service }}
                   </span>
                 </label>
@@ -55,9 +55,9 @@
           </div>
 
           <div class="col-span-1">
-            <label for="budget" class="block mb-3 text-cc-mid-grey text-lg">Budget</label>
+            <label for="budget" class="block mb-3 text-cc-dark-grey text-md">Budget</label>
             <div class="relative">
-              <select id="budget" name="budget" class="w-full p-4 bg-cc-light-grey border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-cc-dark-grey appearance-none pr-10 transition-colors">
+              <select id="budget" name="budget" class="w-full p-4 bg-cc-light-grey border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-cc-dark-grey appearance-none pr-10 transition-colors text-md text-cc-dark-grey">
                 <option value="">Select Budget</option>
                 <option value="1000">Less than £1,000</option>
                 <option value="1000-5000">£1,000 - £5,000</option>
@@ -73,9 +73,9 @@
           </div>
 
           <div class="col-span-1">
-            <label for="timescale" class="block mb-3 text-cc-mid-grey text-lg">Timescale</label>
+            <label for="timescale" class="block mb-3 text-cc-dark-grey text-md">Timescale</label>
             <div class="relative">
-              <select id="timescale" name="timescale" class="w-full p-4 bg-cc-light-grey border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-cc-dark-grey appearance-none pr-10 transition-colors">
+              <select id="timescale" name="timescale" class="w-full p-4 bg-cc-light-grey border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-cc-dark-grey appearance-none pr-10 transition-colors text-md text-cc-dark-grey">
                 <option value="">Select Timescale</option>
                 <option value="1-2weeks">1-2 weeks</option>
                 <option value="2-4weeks">2-4 weeks</option>
@@ -92,12 +92,12 @@
           </div>
 
           <div class="col-span-2">
-            <label for="message" class="block mb-3 text-cc-mid-grey text-lg">Project Details</label>
+            <label for="message" class="block mb-3 text-cc-dark-grey text-md">Project Details</label>
             <textarea id="message" name="message" rows="6" required class="w-full p-4 bg-cc-light-grey border-0 rounded-md focus:outline-none focus:ring-2 focus:ring-cc-dark-grey transition-colors"></textarea>
           </div>
 
           <div class="col-span-2 mt-4">
-            <button type="submit" class="px-8 py-3 bg-cc-dark-grey text-white hover:bg-black transition-colors rounded-md border border-cc-dark-grey">Submit</button>
+            <button type="submit" class="px-8 py-3 bg-cc-white text-cc-dark-grey hover:bg-black hover:text-cc-white transition-colors rounded-md border border-cc-dark-grey text-2md">Submit</button>
           </div>
         </div>
 

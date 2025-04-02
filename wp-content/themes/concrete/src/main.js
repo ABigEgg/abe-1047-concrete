@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             },
         });
     });
-    
+
     // Initialize lightGallery for all concrete gallery images
     initLightGallery();
 });
@@ -52,27 +52,27 @@ document.addEventListener('DOMContentLoaded', () => {
 function initLightGallery() {
     // Find all gallery containers
     const galleryContainers = document.querySelectorAll('.concrete-gallery');
-    
+
     galleryContainers.forEach(container => {
         // Get all images in this gallery
         const galleryImages = container.querySelectorAll('.concrete-gallery__image-wrapper');
-        
+
         // Add a click handler to each image wrapper
         galleryImages.forEach(imageWrapper => {
             // Add a cursor pointer to indicate it's clickable
             imageWrapper.style.cursor = 'pointer';
-            
+
             // Get the image element
             const image = imageWrapper.querySelector('img');
-            
+
             // Add data attributes needed for lightGallery
             if (image) {
                 // Get the src of the image
                 const src = image.getAttribute('src');
-                
+
                 // Add the necessary data attribute for lightGallery
                 imageWrapper.setAttribute('data-src', src);
-                
+
                 // Get the alt text or caption if available
                 const caption = imageWrapper.closest('.concrete-gallery__item').querySelector('.concrete-gallery__caption');
                 if (caption) {
@@ -82,7 +82,7 @@ function initLightGallery() {
                 }
             }
         });
-        
+
         // Initialize lightGallery on the container
         lightGallery(container, {
             selector: '.concrete-gallery__image-wrapper',
