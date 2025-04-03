@@ -9,15 +9,15 @@
 
   {# Intro #}
   <div>
-    <div class="py-20">
+    <div class="py-12 md:py-20">
       <div class="container mx-auto max-w-container">
-        <div class="grid grid-cols-12">
+        <div class="grid grid-cols-1 md:grid-cols-12">
           <div class="col-span-6">
-            <h3 class="mb-4 text-3xl text-cc-dark-grey">{{ intro.heading }}</h3>
+            <h3 class="mb-4 text-mobile-h md:text-3xl text-cc-dark-grey">{{ intro.heading }}</h3>
           </div>
           <div class="col-span-6">
-            <h4 class="text-lg text-cc-dark-grey">{{ intro.subheading }}</h4>
-            <p class="text-sm text-cc-mid-grey">{{ intro.text }}</p>
+            <h4 class="text-mobile-subh md:text-lg text-cc-dark-grey">{{ intro.subheading }}</h4>
+            <p class="text-body md:text-sm text-cc-mid-grey">{{ intro.text }}</p>
           </div>
         </div>
       </div>
@@ -26,23 +26,23 @@
 
   {# Wide image #}
   <div>
-    <div class="min-h-[756px] bg-cc-mid-grey">
+    <div class="md:min-h-[756px] bg-cc-mid-grey">
       <img src="{{ feature_image.url }}" alt="{{ feature_image.alt }}" class="object-cover w-full h-full">
     </div>
   </div>
 
   {# Working with us #}
   <div>
-    <div class="py-20">
+    <div class="py-12 md:py-20">
       <div class="container mx-auto">
-        <div class="grid grid-cols-12 gap-8">
-          <div class="col-span-6">
-            <img src="{{ working_with_us.main_image.url }}" alt="{{ working_with_us.main_image.alt }}" class="rounded-lg h-[784px] w-full object-cover">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+          <div class="col-span-1 md:col-span-6">
+            <img src="{{ working_with_us.main_image.url }}" alt="{{ working_with_us.main_image.alt }}" class="rounded-lg md:h-[784px] w-full object-cover">
           </div>
-          <div class="col-span-6">
-            <img src="{{ working_with_us.secondary_image.url }}" alt="{{ working_with_us.secondary_image.alt }}" class="rounded-lg h-[376px] w-full object-cover mb-8">
-            <h4 class="text-lg">{{ working_with_us.heading }}</h4>
-            <p class="text-sm text-cc-mid-grey">{{ working_with_us.text }}</p>
+          <div class="col-span-1 md:col-span-6">
+            <img src="{{ working_with_us.secondary_image.url }}" alt="{{ working_with_us.secondary_image.alt }}" class="rounded-lg md:h-[376px] w-full object-cover mb-8">
+            <h4 class="text-mobile-subh md:text-lg">{{ working_with_us.heading }}</h4>
+            <p class="text-body md:text-sm text-cc-mid-grey">{{ working_with_us.text }}</p>
           </div>
         </div>
       </div>
@@ -52,15 +52,15 @@
   {# Our Process #}
   <div>
     <div class="bg-cc-dark-grey">
-      <div class="py-20">
+      <div class="py-12 md:py-20">
         <div class="container mx-auto max-w-container">
 
           <div class="border-b border-b-cc-white">
             <div class="grid grid-cols-12">
               <div class="col-span-12">
                 <div class="pb-8">
-                  <h3 class="mt-0 mb-4 text-lg leading-none text-cc-white">{{ process.heading }}</h3>
-                  <p class="text-sm text-cc-grey">{{ process.description }}</p>
+                  <h3 class="mt-0 mb-4 text-mobile-subh md:text-lg leading-none text-cc-white">{{ process.heading }}</h3>
+                  <p class="text-body md:text-sm text-cc-grey">{{ process.description }}</p>
                 </div>
               </div>
             </div>
@@ -72,8 +72,8 @@
                 <div class="grid grid-cols-12">
                   <div class="col-span-9">
                     <div class="pb-8">
-                      <h3 class="mt-0 mb-4 text-lg leading-none text-cc-white">{{ item.process_step_title }}</h3>
-                      <p class="text-sm text-cc-grey">{{ item.process_step_description }}</p>
+                      <h3 class="mt-0 mb-4 text-mobile-subh md:text-lg leading-none text-cc-white">{{ item.process_step_title }}</h3>
+                      <p class="text-body md:text-sm text-cc-grey">{{ item.process_step_description }}</p>
                     </div>
                   </div>
                 </div>
@@ -90,9 +90,9 @@
     <div class="py-16 bg-cc-white">
       <div class="container mx-auto max-w-container">
         <div class="mb-20">
-          <h3 class="mb-4 text-xl text-cc-dark-grey">{{ clients.heading }}</h3>
+          <h3 class="mb-4 text-mobile-subh md:text-xl text-cc-dark-grey">{{ clients.heading }}</h3>
           <div>
-            <p class="text-sm text-cc-mid-grey">{{ clients.description }}</p>
+            <p class="text-body md:text-sm text-cc-mid-grey">{{ clients.description }}</p>
           </div>
         </div>
         <div class="grid grid-cols-5 auto-rows-max gap-24">
@@ -111,9 +111,9 @@
             <img src="{{ why_concrete.image.url }}" alt="{{ why_concrete.heading }}" class="rounded-lg h-[376px] w-full object-cover">
           </div>
           <div class="col-span-6">
-            <h3 class="mb-4 text-xl text-cc-dark-grey">{{ why_concrete.heading }}</h3>
+            <h3 class="mb-4 text-mobile-subh md:text-xl text-cc-dark-grey">{{ why_concrete.heading }}</h3>
             <div>
-              <p class="text-sm text-cc-mid-grey">{{ why_concrete.text }}</p>
+              <p class="text-body md:text-sm text-cc-mid-grey">{{ why_concrete.text }}</p>
             </div>
           </div>
         </div> 
@@ -129,7 +129,7 @@
           <div class="col-span-12">
             <div>
               <div class="max-w-[736px] mx-auto">
-                <h3 class="mb-4 text-lg text-cc-dark-grey">{{ testimonials.heading }}</h3>
+                <h3 class="mb-4 text-mobile-subh md:text-lg text-cc-dark-grey">{{ testimonials.heading }}</h3>
               </div>
 
               <div class="glide">
@@ -138,8 +138,8 @@
                     {% for testimonial in testimonials.items %}
                       <li class="glide__slide">
                         <div class="max-w-[736px] mx-auto">
-                          <p class="mb-2 text-md text-cc-dark-grey">{{ testimonial.testimonial_text }}</p>
-                          <p class="text-sm text-cc-dark-grey">
+                          <p class="mb-2 text-testimonial md:text-md text-cc-dark-grey">{{ testimonial.testimonial_text }}</p>
+                          <p class="text-body md:text-sm text-cc-dark-grey">
                             {{ testimonial.testimonial_author }}
                             {% if testimonial.testimonial_company %}
                               , {{ testimonial.testimonial_company }}
@@ -152,11 +152,11 @@
                 </div>
 
                 <div class="glide__arrows" data-glide-el="controls">
-                  <button class="transition-opacity hover:opacity-50 glide__arrow glide__arrow--left" data-glide-dir="<">
-                    <img src="{{ theme.link }}/svg/carousel-left.svg" alt="Previous" class="w-8 h-8">
+                  <button class="transition-opacity hover:opacity-50 glide__arrow glide__arrow--left left-[-45px]" data-glide-dir="<">
+                    <img src="{{ theme.link }}/svg/carousel-left.svg" alt="Previous" class="w-[17px] h-[17px] md:w-8 md:h-8">
                   </button>
-                  <button class="transition-opacity hover:opacity-50 glide__arrow glide__arrow--right" data-glide-dir=">">
-                    <img src="{{ theme.link }}/svg/carousel-right.svg" alt="Next" class="w-8 h-8">
+                  <button class="transition-opacity hover:opacity-50 glide__arrow glide__arrow--right right-[-45px]" data-glide-dir=">">
+                    <img src="{{ theme.link }}/svg/carousel-right.svg" alt="Next" class="w-[17px] h-[17px] md:w-8 md:h-8">
                   </button>
                 </div>
               </div>

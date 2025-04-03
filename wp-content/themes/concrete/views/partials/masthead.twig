@@ -11,7 +11,7 @@
 {% set has_image = background_image is defined and background_image %}
 
 <div>
-  <header class="min-h-[80vh] md:h-screen {% if has_image %}bg-cover bg-center{% else %}{{ background_color }}{% endif %}"
+  <header class="mt-[84px] md:mt-0 h-[225px] md:h-screen {% if has_image %}bg-cover bg-center{% else %}{{ background_color }}{% endif %}"
           {% if has_image %}style="background-image: url('{{ background_image }}');"{% endif %}>
     <div class="container flex justify-center items-center mx-auto h-full max-w-container md:px-0">
       {% if title is defined and title %}

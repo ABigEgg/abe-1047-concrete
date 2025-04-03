@@ -8,6 +8,13 @@
     
     {{ function('wp_head')  }}
 
+    <link rel="icon" type="image/png" href="{{ site.theme.link }}/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="{{ site.theme.link }}/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="{{ site.theme.link }}/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ site.theme.link }}/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Concrete" />
+    <link rel="manifest" href="{{ site.theme.link }}/favicon/site.webmanifest" />
+
 </head>
 <body {{ function('body_class', 'antialiased') }} >
 
